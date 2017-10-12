@@ -28,6 +28,7 @@ gem 'puma', '~> 3.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
 end
 
 group :development do
@@ -39,6 +40,7 @@ end
 gem 'rack-cors', '~> 1.0', '>= 1.0.1'
 gem 'bcrypt'
 gem 'faker'
+gem 'rolify'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 ruby "2.4.1"
