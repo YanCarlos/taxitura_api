@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-def create_user
-  User.new({
+def create_conductor
+  u = User.new({
     nombre: Faker::Name.unique.name,
     cedula: Faker::Number.number(10),
     telefono: Faker::Number.number(10),
@@ -16,7 +16,8 @@ def create_user
     token: Faker::Crypto.md5,
     activo: Faker::Boolean.boolean
   }).save!
+  u.be_driver
 end
 
 User.delete_all
-8.times { create_user }
+8.times { create_conductor}
