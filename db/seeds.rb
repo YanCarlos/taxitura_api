@@ -15,9 +15,10 @@ def create_conductor
     password: '123456',
     token: Faker::Crypto.md5,
     activo: Faker::Boolean.boolean
-  }).save!
+  })
+  u.save!
   u.be_driver
 end
 
 User.delete_all
-8.times { create_conductor}
+1.times { create_conductor}
