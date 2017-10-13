@@ -21,4 +21,4 @@ def create_conductor
 end
 
 User.delete_all
-1.times { create_conductor}
+8.times { create_conductor}
