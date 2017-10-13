@@ -19,6 +19,10 @@ class User < ApplicationRecord
     self.update_attribute(:token, nil)
   end
 
+  def role
+    self.roles[0].name
+  end
+
   def generate_token(length=35)
     chars = 'abcde_fghjk_mnpqrs_tuvwxyzA_BCDEFGHJK_LMNP_QRSTUV_WXYZ012_3456789_'
     token = ''
