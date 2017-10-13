@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       post '/logout', to: 'users#logout'
       get '/me', to: 'users#me'
       resources :users
+      resources :drivers
     end
   end
 end
