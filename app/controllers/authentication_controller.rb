@@ -5,8 +5,15 @@ class AuthenticationController < ApplicationController
     if @user and @user.authenticate params[:password] and @user.generate_token
       res = {
         nombre: @user.nombre,
+        cedula: @user.cedula,
+        telefono: @user.telefono,
+        direccion: @user.direccion,
+        email: @user.email,
+        activo: @user.activo, 
         token: @user.token,
-        role: @user.roles[0].name
+        role: @user.roles[0].name,
+        created_at: @user.created_at,
+        updated_at: @user.updated_at
       }
       render json: res, status: 200
     else
