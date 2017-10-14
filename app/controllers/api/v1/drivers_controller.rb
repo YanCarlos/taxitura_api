@@ -12,7 +12,7 @@ module Api::V1
     end
 
     def update
-      @driver.update(user_params)
+      @driver.update(driver_params)
       json_response(@driver)
     end
 

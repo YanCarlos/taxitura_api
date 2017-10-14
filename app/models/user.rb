@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   rolify
   has_secure_password
-  validates_presence_of :nombre, :email, :telefono, :direccion, :cedula, :password
+  validates_presence_of :password, on: :create
+  validates_presence_of :nombre, :email, :telefono, :direccion, :cedula
 
   def be_admin
     self.add_role :admin
