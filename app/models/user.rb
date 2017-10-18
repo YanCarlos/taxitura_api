@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   rolify
   has_secure_password
+  mount_uploader :foto, DriverPhotoUploader
   validates_presence_of :password, on: :create
   validates_presence_of :nombre, :email, :telefono, :direccion, :cedula
 
