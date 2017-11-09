@@ -5,7 +5,37 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+def create_admin
+  u = User.new({
+    nombre: 'Admin',
+    cedula: '1096038704',
+    telefono: Faker::Number.number(10),
+    email: 'taxituraadmin@gmail.com',
+    direccion: Faker::Address.street_address,
+    password: '1234567890',
+    token: Faker::Crypto.md5,
+    activo: true
+  })
+  u.save!
+  u.be_admin
+end
+
 def create_conductor
+  u = User.new({
+    nombre: 'Conductor de prueba',
+    cedula: Faker::Number.number(10),
+    telefono: Faker::Number.number(10),
+    email: 'testconductor@gmail.com',
+    direccion: Faker::Address.street_address,
+    password: '1234567890',
+    token: Faker::Crypto.md5,
+    activo: Faker::Boolean.boolean
+  })
+  u.save!
+  u.be_driver
+end
+
+def create_conductores
   u = User.new({
     nombre: Faker::Name.unique.name,
     cedula: Faker::Number.number(10),
@@ -21,4 +51,6 @@ def create_conductor
 end
 
 User.delete_all
-8.times { create_conductor}
+1.times { create_admin}
+1.times { create_conductor}
+8.times { create_conductores}

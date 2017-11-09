@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       post '/logout', to: 'users#logout'
       get '/me', to: 'users#me'
+      get '/password_update/:id', to:'users#show'
+      put '/password_update/:id', to:'users#password_update'
       resources :users
       resources :drivers
     end

@@ -4,6 +4,21 @@ class User < ApplicationRecord
   mount_uploader :foto, DriverPhotoUploader
   validates_presence_of :password, on: :create
   validates_presence_of :nombre, :email, :telefono, :direccion, :cedula
+  
+  before_validation do
+  
+  end
+
+  before_create do 
+    self.password = self.cedula
+  end
+
+  def password_update params
+    CustomerError.send('La contrasenia antigua no puede ser vacia.') if params[:contrasenia_antigua].nil?
+    CustomError.send('Contraseña antigua incorrecta.') unless self.authenticate params[:contrasenia_antigua]
+    CustomError.send('Las nuevas contraseñas no coinciden.') unless params[:contrasenia_nueva] == params[:confirmacion_contrasenia_nueva]
+    self.update_attribute('password', params[:contrasenia_nueva])
+  end
 
   def be_admin
     self.add_role :admin

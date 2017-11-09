@@ -4,6 +4,7 @@ class AuthenticationController < ApplicationController
   def autenthicate_user
     if @user and @user.authenticate params[:password] and @user.generate_token
       res = {
+        id: @user.id,
         nombre: @user.nombre,
         cedula: @user.cedula,
         telefono: @user.telefono,
