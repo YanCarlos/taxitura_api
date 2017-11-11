@@ -14,7 +14,8 @@ class AuthenticationController < ApplicationController
         token: @user.token,
         role: @user.roles[0].name,
         created_at: @user.created_at,
-        updated_at: @user.updated_at
+        updated_at: @user.updated_at,
+        foto: @user.foto
       }
       render json: res, status: 200
     else

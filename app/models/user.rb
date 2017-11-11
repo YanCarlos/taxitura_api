@@ -1,18 +1,21 @@
 class User < ApplicationRecord
   rolify
   has_secure_password
-  mount_uploader :foto, DriverPhotoUploader
-  validates_presence_of :password, on: :create
+  mount_base64_uploader :foto, DriverPhotoUploader
   validates_presence_of :nombre, :email, :telefono, :direccion, :cedula
   
   before_validation do
+    if self.new_record?
+      self.password = self.cedula
+      if self.foto.filename.nil?
+        self.foto = ImagesUtils.avatar_profile
+      end
+    end
+    raise CustomError, 'Ya hay un usuario registrado con este email.' if email_exists?
+    raise CustomError, 'Ya hay un usuario registrado con esta cedula.' if cedula_exists?
+  end
+
   
-  end
-
-  before_create do 
-    self.password = self.cedula
-  end
-
   def password_update params
     CustomerError.send('La contrasenia antigua no puede ser vacia.') if params[:contrasenia_antigua].nil?
     CustomError.send('Contraseña antigua incorrecta.') unless self.authenticate params[:contrasenia_antigua]
@@ -31,6 +34,17 @@ class User < ApplicationRecord
   def be_driver
     self.add_role :driver
   end
+
+  def email_exists?
+    found = User.find_by(:email => self.email)
+    found and  found!= self
+  end
+
+  def cedula_exists?
+    found = User.find_by(:cedula => self.cedula)
+    found and  found!= self
+  end
+
 
   def reset_token
     self.update_attribute(:token, nil)

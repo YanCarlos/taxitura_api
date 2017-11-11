@@ -8,11 +8,11 @@
 def create_admin
   u = User.new({
     nombre: 'Admin',
-    cedula: '1096038704',
+    cedula: '12345678',
     telefono: Faker::Number.number(10),
     email: 'taxituraadmin@gmail.com',
     direccion: Faker::Address.street_address,
-    password: '1234567890',
+    password: '12345678',
     token: Faker::Crypto.md5,
     activo: true
   })
@@ -23,11 +23,11 @@ end
 def create_conductor
   u = User.new({
     nombre: 'Conductor de prueba',
-    cedula: Faker::Number.number(10),
+    cedula: '123456789',
     telefono: Faker::Number.number(10),
     email: 'testconductor@gmail.com',
     direccion: Faker::Address.street_address,
-    password: '1234567890',
+    password: '123456789',
     token: Faker::Crypto.md5,
     activo: Faker::Boolean.boolean
   })
