@@ -32,6 +32,7 @@ module TaxituraApi
     config.autoload_paths += %W(#{config.root}/app/uploaders)
     config.api_only = true
     config.debug_exception_response_format = :default
+    config.assets.enabled = true
     Rails.application.config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
