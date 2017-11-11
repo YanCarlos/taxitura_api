@@ -49,7 +49,7 @@ START ABOUT US SECTION
         <div class="col-md-12">
           <div class="logo text-center">
             <!-- LOGO -->
-            <%=image_tag("logo.png", size: "60x60") %>
+            <!-- <%=image_tag("logo.png", size: "60x60") %> -->
           </div>
         </div>
       </div>
@@ -94,9 +94,8 @@ START ABOUT US SECTION
         <!-- ABOUT US SECTION TITLE-->
         <div class="section_title">
           <h2>Nosotros</h2>
-          <p>Somos un grupo de servidores, hijos de Buenaventura. <br>
-Comprometidos con el desarrollo del municipio de Buenaventura, el departamento del Valle Del
-Cauca y Colombia entera, Hemos tenido el privilegio de encontrarnos en nuestro destino
+          <p class="justify-text">
+Comprometidos con el desarrollo del país, Hemos tenido el privilegio de encontrarnos en nuestro destino
 compartiendo con el mismo propósito, el deseo imbatible de aportar al desarrollo social,
 económico y tecnológico de nuestras ciudades.</p>
         </div>
@@ -117,17 +116,27 @@ económico y tecnológico de nuestras ciudades.</p>
           <!-- TITLE -->
           <div class="inner_about_title">
             <h2>¿POR QUÉ USARLA?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="fnt-15 justify-text">Por qué interactuar con taxi tura: Taxi es una plataforma inteligente, que interactúa con un bot
+de Facebook llamado "Tura", complementándose en taxi tura en su perfil en Facebook, podrás
+interactuar con él, ha sido creado con el fin de minimizar los tiempos de espera en el llamado de un
+servicio de taxi y con el fin de que no tengas que ocupar espacio en tu dispositivo con
+aplicaciones y poderte brindar facilidad en la conexión con los más preparados conductores de la
+ciudad, los cuales han sido seleccionados entre los mejores habiendo cumplido con los requisitos
+necesarios, han hecho disposición de algunos datos personales, para facilitar su
+ubicación de ser necesario. Para poderte brindar seguridad, comodidad, eficiencia y buena
+atención.</p>
           </div>
           <div class="inner_about_desc">
 
             <!-- SINGLE DESC -->
             <div class="single_about_area fadeInUp wow" data-wow-duration=".5s" data-wow-delay="1s">
               <!-- ICON -->
-              <div><i class="fa fa-clock-o"></i></div>
+              <div><i class="fa fa-bed"></i></div>
               <!-- HEADING DESCRIPTION -->
-              <h3>Más Rapido</h3>
-              <p>Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit.</p>
+              <h3>Comodidad</h3>
+              <p>Taxitura busca dejar grabada en la memoria una muy buena experiencia a cada uno
+de sus usuarios, sabemos que para eso debemos contar con el apoyo del gremio taxista,
+brindandonos la disposición de un buen vehículo que califique de 1 a 5.</p>
             </div>
             <!-- END SINGLE DESC -->
 
@@ -135,10 +144,12 @@ económico y tecnológico de nuestras ciudades.</p>
             <!-- SINGLE DESC -->
             <div class="single_about_area fadeInUp wow" data-wow-duration=".5s" data-wow-delay="1.5s">
               <!-- ICON -->
-              <div><i class="fa fa-download"></i></div>
+              <div><i class="fa fa-shield"></i></div>
               <!-- HEADING DESCRIPTION -->
-              <h3>Sin descargas</h3>
-              <p>Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit.</p>
+              <h3>Seguridad</h3>
+              <p>Taxitura exige unos documentos básicos al conductor tanto del taxista como del
+vehículo, deben cumplir con la normatividad y además exige datos personales que permitan
+ubicarlo de manera fácil y segura,</p>
             </div>
             <!-- END SINGLE DESC -->
 
@@ -146,10 +157,12 @@ económico y tecnológico de nuestras ciudades.</p>
             <!-- SINGLE DESC -->
             <div class="single_about_area fadeInUp wow" data-wow-duration=".5s" data-wow-delay="2s">
               <!-- ICON -->
-              <div><i class="fa fa-facebook-square"></i></div>
+              <div><i class="fa fa-clock-o"></i></div>
               <!-- HEADING DESCRIPTION -->
-              <h3>Desde Facebook Messenger</h3>
-              <p>Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit.</p>
+              <h3>Eficiencia:</h3>
+              <p>Taxitura quiere siempre el menor tiempo para tu servicio, es por esa razón que hace su
+trabajo de la forma más eficiente, buscando el taxi que este mar cerca de tu posición, en intervalos
+de 500 metros, para así garantizar que tu servicio este lo más rápido posible frente a ti.</p>
             </div>
             <!-- END SINGLE DESC -->
 
@@ -323,7 +336,7 @@ START FEATURES
 
             <!-- FEATURE HEADING AND DESCRIPTION -->
             <h3>Horario<span></span></h3>
-            <p>El chat estará disponible las 24 horas del día </p>
+            <p>Nuestro servicío estará estará disponible las 24 horas del día </p>
           </div>
           <!-- END SINGLE FEATURE -->
 
@@ -354,7 +367,7 @@ START FEATURES
             <div><span class="fa fa-mobile"></span></div>
 
             <!-- FEATURE HEADING AND DESCRIPTION -->
-            <h3><span>/</span>Disponibilidad</h3>
+            <h3><span></span>Disponibilidad</h3>
             <p>Estará disponible para cualquier dispositivo con acceso a Facebook Messenger</p>
           </div>
           <!-- END SINGLE FEATURE -->
@@ -366,8 +379,8 @@ START FEATURES
             <div><span class="fa fa-wifi"></span></div>
 
             <!-- FEATURE HEADING AND DESCRIPTION -->
-            <h3><span>/</span>Conectividad</h3>
-            <p>A la hora de pedir un taxi deberas contar con una conexión a internet</p>
+            <h3><span></span>Conectividad</h3>
+            <p>A la hora de pedir un taxi deberas contar con una conexión estable a internet</p>
           </div>
           <!-- END SINGLE FEATURE -->
         </div>
@@ -628,13 +641,7 @@ START CONTCT FORM AREA
             <ul>
               <li><a href="https://www.facebook.com/taxitura" target="_blank"><i class="fa fa-facebook"></i></a>
               </li>
-              <li><a href=""><i class="fa fa-twitter"></i></a>
-              </li>
               <li><a href="https://www.instagram.com/taxitura" target="_blank"><i class="fa fa-instagram"></i></a>
-              </li>
-              <li><a href=""><i class="fa fa-behance"></i></a>
-              </li>
-              <li><a href=""><i class="fa fa-youtube-play"></i></a>
               </li>
             </ul>
           </div>
