@@ -50,7 +50,67 @@ def create_conductores
   u.be_driver
 end
 
+def create_packages
+  pack1 = Package.create_with(
+    nombre: "Paquete #1",
+    cantidad_de_carreras: 25,
+    valor_de_carrera: 600,
+    utilidad_taxista: 5,
+    valor_de_paquete: 15000,
+  ).find_or_create_by(nombre: 'Paquete #1')
+
+  pack2 = Package.create_with(
+    nombre: "Paquete #2",
+    cantidad_de_carreras: 50,
+    valor_de_carrera: 600,
+    utilidad_taxista: 10,
+    valor_de_paquete: 30000,
+  ).find_or_create_by(nombre: 'Paquete #2')
+
+  pack3 = Package.create_with(
+    nombre: "Paquete #3",
+    cantidad_de_carreras: 75,
+    valor_de_carrera: 600,
+    utilidad_taxista: 15,
+    valor_de_paquete: 45000,
+  ).find_or_create_by(nombre: 'Paquete #3')
+
+  pack4 = Package.create_with(
+    nombre: "Paquete #4",
+    cantidad_de_carreras: 100,
+    valor_de_carrera: 600,
+    utilidad_taxista: 20,
+    valor_de_paquete: 60000,
+  ).find_or_create_by(nombre: 'Paquete #4')
+
+  pack5 = Package.create_with(
+    nombre: "Paquete #5",
+    cantidad_de_carreras: 125,
+    valor_de_carrera: 600,
+    utilidad_taxista: 25,
+    valor_de_paquete: 75000,
+  ).find_or_create_by(nombre: 'Paquete #5')
+ 
+ pack6 = Package.create_with(
+    nombre: "Paquete #6",
+    cantidad_de_carreras: 150,
+    valor_de_carrera: 600,
+    utilidad_taxista: 30,
+    valor_de_paquete: 90000,
+  ).find_or_create_by(nombre: 'Paquete #6')
+
+ pack7 = Package.create_with(
+    nombre: "Paquete #7",
+    cantidad_de_carreras: 175,
+    valor_de_carrera: 600,
+    utilidad_taxista: 35,
+    valor_de_paquete: 105000,
+  ).find_or_create_by(nombre: 'Paquete #7')
+ 
+end
+
 User.delete_all
-1.times { create_admin}
-1.times { create_conductor}
-8.times { create_conductores}
+1.times { create_admin }
+1.times { create_conductor }
+8.times { create_conductores }
+1.times { create_packages } 

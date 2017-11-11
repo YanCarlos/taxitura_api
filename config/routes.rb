@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       put '/password_update/:id', to:'users#password_update'
       resources :users
       resources :drivers
+      resources :packages
     end
   end
   root :controller => 'home', :action => 'home'

@@ -9,7 +9,7 @@ module Api::V1
 
     def update
       @user.update(user_params)
-      json_response(@user, :update)
+      json_response(@user, :updated)
     end
 
     def destroy
@@ -28,7 +28,7 @@ module Api::V1
 
     def password_update
       @user.password_update(password_update_params)
-      json_response(@user, :update)
+      json_response(@user, :updated)
     end
 
 
