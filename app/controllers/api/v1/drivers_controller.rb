@@ -17,11 +17,6 @@ module Api::V1
       json_response(@driver)
     end
 
-    def destroy
-      @driver.destroy
-      head :no_content
-    end
-
     def create
       @driver = User.create!(driver_params)
       @driver.be_driver
