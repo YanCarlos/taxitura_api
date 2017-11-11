@@ -47,10 +47,6 @@ ActiveRecord::Schema.define(version: 20171109211638) do
     t.boolean "activo", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "foto_file_name"
-    t.string "foto_content_type"
-    t.integer "foto_file_size"
-    t.datetime "foto_updated_at"
     t.string "foto"
     t.index ["cedula"], name: "index_users_on_cedula", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
