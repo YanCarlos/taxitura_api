@@ -14,4 +14,5 @@ Rails.application.routes.draw do
       resources :drivers
     end
   end
+  root :controller => 'home', :action => 'home'
 end
