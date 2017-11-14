@@ -29,7 +29,7 @@ def create_conductor
     direccion: Faker::Address.street_address,
     password: '123456789',
     token: Faker::Crypto.md5,
-    activo: Faker::Boolean.boolean
+    activo: true
   })
   u.save!
   u.be_driver
