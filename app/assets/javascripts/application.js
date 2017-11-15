@@ -28,3 +28,6 @@
 //= require waypoints.min.js
 //= require jquery.counterup.min.js
 //= require script.js
+//= require jquery3
+//= require popper
+//= require bootstrap

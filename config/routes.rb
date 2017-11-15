@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   
   get '/auth', to: 'authentication#autenthicate_user'
   get '/logout', to: 'authentication#logout_user'
+  get '/audited/:model/:id', to: 'audited#index'
+  
+
 
   namespace :api do
     namespace :v1 do
