@@ -4,7 +4,7 @@ module Api::V1
     before_action :get_foto, only: [:create, :update]
 
     def index
-      @drivers = User.with_role :driver
+      @drivers = User.order(nombre: :asc).with_role :driver
       json_response(@drivers, @drivers.count)
     end
 

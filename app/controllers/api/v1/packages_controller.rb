@@ -1,9 +1,9 @@
 module Api::V1
   class PackagesController < BaseController
-    before_action :set_package, only:[:update, :show]
+    before_action :set_package, only:[:update, :show, :destroy]
 
     def index
-      @packages = Package.all
+      @packages = Package.order(nombre: :asc).all
       json_response(@packages, @packages.count)
     end
 
@@ -12,30 +12,29 @@ module Api::V1
     end
 
     def create
-      @package = Package.create!(package_params_create)
-      json_response(@packages, :created)
+      @package = Package.create!(package_params)
+      json_response(@package, :created)
     end
 
-     def update
-      @package.update(package_params_update)
-      json_response(@packages, :updated)
+    def update
+      @package.update(package_params)
+      json_response(@package, :updated)
+    end
+
+    def destroy
+      @package.destroy
+      head :no_content
     end
 
 
     private
-    def package_params_create
+    def package_params
       params.permit(
         :nombre, 
         :cantidad_de_carreras, 
         :valor_de_carrera, 
         :utilidad_taxista, 
         :valor_de_paquete
-      )
-    end
-
-    def package_params_update
-      params.permit(
-        :nombre
       )
     end
 
