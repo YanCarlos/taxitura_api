@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'authentication#logout_user'
 
   resources :inboxes
+  resources :subscribers
 
   namespace :api do
     namespace :v1 do

@@ -62,5 +62,9 @@ gem "font-awesome-rails"
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'coffee-rails'
+#for mailchimp
+gem 'gibbon'
+#for print pretty in console
+gem 'awesome_print'
 
 ruby "2.4.1"
