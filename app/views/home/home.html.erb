@@ -616,21 +616,32 @@ START CONTCT FORM AREA
         <!-- END ERROR AND SUCCESS MESSAGE -->
 
         <!-- CONTACT FORM starts here, Go to contact.php and add your email ID, thats it.-->
-        <form role="form" action="contact.php">
+         <% if flash[:success] %>
+            <div class="alert alert-success" role="alert">
+              <a  class="alert-link"><%= flash[:success] %></a>
+            </div>
+         <% end %>
+         <% if flash[:error] %>
+            <div class="alert alert-danger" role="alert">
+              <a><%= flash[:error] %></a>
+            </div>
+         <% end %>
+        
+        <%= form_for Inbox.new, {url: inboxes_path , role: 'form', id: 'contact-us'} do |f| %>
           <div class="row">
             <div class="col-md-4">
-              <input type="text" class="form-control" id="name" placeholder="Nombre">
-              <input type="email" class="form-control" id="email" placeholder="Email">
-              <input type="text" class="form-control" id="subject" placeholder="Asunto">
+              <%= f.text_field :nombre, id: 'name', class: "form-control",placeholder: "Nombre",:required => true %>
+              <%= f.email_field :email,id: 'email', class: "form-control",placeholder: "Email" , :required => true%>
+              <%= f.text_field :asunto, id: 'subject', class: "form-control",placeholder: "Asunto", :required => true %>
             </div>
 
 
             <div class="col-md-8">
-              <textarea class="form-control" id="message" rows="25" cols="10" placeholder="  Mensaje..."></textarea>
-              <button type="button" class="btn btn-default submit-btn form_submit">ENVIAR MENSAJE</button>
+              <%= f.text_area :mensaje, id: 'message',class: "form-control", :required => true, placeholder: " Mensaje...", rows: 25, cols: 10,style: "height: 117px;" %>
+              <%= f.submit "Enviar Mensaje" ,class: "btn btn-default submit-btn"%>
             </div>
           </div>
-        </form>
+        <% end %>
         <!-- END FORM -->
       </div>
     </div>
@@ -721,7 +732,7 @@ FOOTER
       <div class="col-md-5">
         <div class="copy_right_text">
           <!-- COPYRIGHT TEXT -->
-          <p>Copyright &copy; 2017. All Rights Reserved.</p>
+          <p>Construido por el equipo de Taxitura con amor para ti.</p>
         </div>
       </div>
 
