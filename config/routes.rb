@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       resources :drivers
       resources :packages
       resources :recharges
-
+      resources :questions
     end
   end
   root :controller => 'home', :action => 'home'
