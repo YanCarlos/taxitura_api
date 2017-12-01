@@ -1,6 +1,9 @@
 module Api::V1
-  class QuestionsController < BaseController
+  class QuestionsController < ApplicationController
     before_action :set_question, only:[:update, :show, :destroy]
+
+    include Concerns::Response
+    include Concerns::ExceptionHandler
 
     def index
       unless filter_questions
