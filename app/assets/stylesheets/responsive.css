@@ -31,6 +31,9 @@
     .about_phone img {
         width: 100%;
     }
+    .navbar-default .navbar-nav>li>a{
+        color: #fff;
+    }
 }
 /* This Css is for tablet */
 
