@@ -12,9 +12,9 @@
 //
 
 //= require jquery
+//= require jquery.min.js
 //= require jquery.ajaxchimp.min.js
 //= require jquery.ajaxchimp.langs.js
-//= require jquery.min.js
 //= require jquery_ujs
 //= require bootstrap.min.js
 //= require turbolinks
@@ -28,3 +28,4 @@
 //= require waypoints.min.js
 //= require jquery.counterup.min.js
 //= require script.js
+//= require frequent_questions.js

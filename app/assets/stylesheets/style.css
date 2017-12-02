@@ -764,6 +764,20 @@ div.carousel-inner .item img {
 /*---------------------------------------
    SECTION CONTACT
 -----------------------------------------*/
+.panel-default{
+    border-color: #f49c00;
+}
+
+.panel-default>.panel-heading{
+    color: #000;
+    background-color: #fffffe;
+    border-color: #f49c00;
+}
+
+.panel-title a:hover{
+    color: #000;
+    background-color: #fff;
+}
 
 .contact {
     background: #f1f1f1;
@@ -993,6 +1007,15 @@ div.carousel-inner .item img {
 /*---------------------------------------
    SECTION FOOTER
 -----------------------------------------*/
+.subtitle-fq{
+    color: #fff;
+    font-size: 19px;
+    font-weight: 200;
+    /* border-bottom: 2px solid #fff; */
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    text-align: center;
+}
 
 .copyright {
     background-color: #1A1D22;
