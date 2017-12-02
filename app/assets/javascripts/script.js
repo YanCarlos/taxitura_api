@@ -108,7 +108,7 @@ $(function() {
 	
 	"use strict";
 
-  $('a[href*=#]:not([href=#])').click(function() {
+  $('a.menu-link[href*=\\#]:not([href=\\#])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -318,12 +318,12 @@ $(document).ready(function() {
 
 //VIDEO BACKGROUND
 $(document).ready(function() {
-  var videobackground = new $.backgroundVideo($('body'), {
-    "align": "centerXY",
-    "width": 1280,
-    "height": 720,
-    "path": "media/",
-    "filename": "cloud",
-    "types": ["mp4","ogg","webm"]
-  });
+  // var videobackground = new $.backgroundVideo($('body'), {
+  //   "align": "centerXY",
+  //   "width": 1280,
+  //   "height": 720,
+  //   "path": "media/",
+  //   "filename": "cloud",
+  //   "types": ["mp4","ogg","webm"]
+  // });
 });
