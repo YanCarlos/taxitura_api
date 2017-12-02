@@ -23,9 +23,9 @@ $(document).ready(function(){
 		    // el tipo de información que se espera de respuesta   		// The content type used when sending data to the server. Default is: "application/x-www-form-urlencoded"
 		    // código a ejecutar si la petición es satisfactoria;
 		    // la respuesta es pasada como argumento a la función
-		    success : function(respuesta) {
-		    	var questions = '[{"id":3,"pregunta":"¿How are you?","respuesta":"Very well","tipo":"usuarios","created_at":"2017-12-01T17:34:51.980Z","updated_at":"2017-12-01T17:34:51.980Z"}, {"id":3,"pregunta":"¿Cómo estás?","respuesta":"Hola todo bien","tipo":"usuarios","created_at":"2017-12-01T17:34:51.980Z","updated_at":"2017-12-01T17:34:51.980Z"}]';
-		    	var obj = JSON.parse(questions);
+		    success : function(obj) {
+		    	//var questions = '[{"id":3,"pregunta":"¿How are you?","respuesta":"Very well","tipo":"usuarios","created_at":"2017-12-01T17:34:51.980Z","updated_at":"2017-12-01T17:34:51.980Z"}, {"id":3,"pregunta":"¿Cómo estás?","respuesta":"Hola todo bien","tipo":"usuarios","created_at":"2017-12-01T17:34:51.980Z","updated_at":"2017-12-01T17:34:51.980Z"}]';
+		    	//var obj = JSON.parse(respuesta);
 		    	
 		    	if (type) {
 		    		loadFrecuentQuestions(obj, 'usuarios');
