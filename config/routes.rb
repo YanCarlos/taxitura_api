@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resources :packages
       resources :recharges
       resources :questions
+      resources :recharge_homes
     end
   end
   root :controller => 'home', :action => 'home'
