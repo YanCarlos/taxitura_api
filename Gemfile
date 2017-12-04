@@ -66,5 +66,15 @@ gem 'coffee-rails'
 gem 'gibbon'
 #for print pretty in console
 gem 'awesome_print'
+#for rest-client
+gem 'rest-client', '~> 2.0.2'
+gem 'mime-types'
+gem 'netrc', '~> 0.11.0'
+gem 'http-accept', '~> 1.7'
+gem 'http-cookie', '~> 1.0', '>= 1.0.3'
+#end for rest-client
+
+
+
 
 ruby "2.4.1"

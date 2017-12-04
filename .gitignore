@@ -14,3 +14,8 @@
 !/tmp/.keep
 
 .byebug_history
+
+# Ignore application configuration
+/config/application.yml
+/config/local_env.yml
+config/environment_variables.yml
