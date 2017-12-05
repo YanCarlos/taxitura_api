@@ -1,0 +1,36 @@
+- require 'neatjson'
+.container
+  %h2.text-center Auditoria
+  .cards
+    - @models.reverse_each.with_index do |row, indice|
+      - user = row.user
+      .card.is-collapsed{:class => "[ ]"}
+        .card__inner.js-expander{"data-toggle" => "collapse", :href => "#content-#{row.id}", :role => "button"}
+          .circle= @models.count - (indice)
+          %span= row.action.capitalize
+          %br
+          %span{:style => "font-size:12px"}= "Por #{user.nombre}"
+        .card_body.collapse{ :id => "content-#{row.id}"}
+          .content-params
+            .caption
+              %label
+                Fecha:
+                %span= row.created_at.to_formatted_s(:long)
+            .caption
+              %label
+                Hecho por:
+                %span= "#{user.nombre} <#{user.email}>"
+            .caption
+              %label
+                IP:
+                %span= row.remote_address
+            .divider
+            .caption
+              %label
+                Cambios que se hicieron:
+              %pre= JSON.neat_generate(row.audited_changes, sort:true, wrap:10)
+            .caption
+              %label
+                Asi esta actualmente
+              %pre= JSON.neat_generate(@model.as_json, sort:false, wrap:10)
+            

@@ -1,6 +1,6 @@
 class Recharge < ApplicationRecord
   belongs_to :user
-
+  audited
 
   after_save do
     new_credit = {
