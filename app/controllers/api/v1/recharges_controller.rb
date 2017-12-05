@@ -5,7 +5,7 @@ module Api::V1
     before_action :set_recharge, only:[:show]
 
     def index
-      @recharges_for_driver = @driver.recharges
+      @recharges_for_driver = @driver.recharges.limit(15)
       json_response(@recharges_for_driver, @recharges_for_driver.count)
     end
 
@@ -33,7 +33,10 @@ module Api::V1
         valor_de_carrera: @package.valor_de_carrera,
         utilidad_taxista: @package.utilidad_taxista,
         valor_de_paquete: @package.valor_de_paquete,
-        ganancia_taxista: @package.ganancia_taxista
+        ganancia_taxista: @package.ganancia_taxista,
+        asistente_id: current_user.id,
+        asistente_nombre: current_user.nombre,
+        direccion: current_user.direccion      
       }
     end
 
