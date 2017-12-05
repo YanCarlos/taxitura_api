@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   rolify
   has_many :recharges
+  audited
   has_secure_password
   mount_base64_uploader :foto, DriverPhotoUploader
   validates_presence_of :nombre, :email, :telefono, :direccion, :cedula

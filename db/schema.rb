@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20171205212937) do
+
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +40,7 @@ ActiveRecord::Schema.define(version: 20171205212937) do
     t.index ["user_id", "user_type"], name: "user_index"
   end
 
+<<<<<<< HEAD
   create_table "inboxes", force: :cascade do |t|
     t.string "nombre"
     t.string "email"
@@ -44,6 +48,8 @@ ActiveRecord::Schema.define(version: 20171205212937) do
     t.string "mensaje"
   end
 
+=======
+>>>>>>> auditoria
   create_table "packages", force: :cascade do |t|
     t.string "nombre"
     t.decimal "cantidad_de_carreras"

@@ -29,3 +29,6 @@
 //= require jquery.counterup.min.js
 //= require script.js
 //= require frequent_questions.js
+//= require jquery3
+//= require popper
+//= require bootstrap
