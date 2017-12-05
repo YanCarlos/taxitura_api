@@ -29,3 +29,4 @@
 //= require jquery.counterup.min.js
 //= require script.js
 //= require frequent_questions.js
+//= require maps.js
