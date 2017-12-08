@@ -36,7 +36,8 @@ module Api::V1
         ganancia_taxista: @package.ganancia_taxista,
         asistente_id: current_user.id,
         asistente_nombre: current_user.nombre,
-        direccion: current_user.direccion      
+        direccion: current_user.direccion,
+        nombre_paquete: @package.nombre
       }
     end
 

@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206215354) do
-
+ActiveRecord::Schema.define(version: 20171208170230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +43,7 @@ ActiveRecord::Schema.define(version: 20171206215354) do
     t.string "asunto"
     t.string "mensaje"
   end
-  
+
   create_table "packages", force: :cascade do |t|
     t.string "nombre"
     t.decimal "cantidad_de_carreras"
@@ -85,6 +84,7 @@ ActiveRecord::Schema.define(version: 20171206215354) do
     t.string "direccion"
     t.string "asistente_nombre"
     t.integer "asistente_id"
+    t.string "nombre_paquete"
     t.index ["user_id"], name: "index_recharges_on_user_id"
   end
 
@@ -113,6 +113,13 @@ ActiveRecord::Schema.define(version: 20171206215354) do
     t.string "ciudad"
     t.boolean "activo"
     t.boolean "proxima_revision"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taxis_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "taxi_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
