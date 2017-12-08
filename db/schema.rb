@@ -40,16 +40,13 @@ ActiveRecord::Schema.define(version: 20171205212937) do
     t.index ["user_id", "user_type"], name: "user_index"
   end
 
-<<<<<<< HEAD
   create_table "inboxes", force: :cascade do |t|
     t.string "nombre"
     t.string "email"
     t.string "asunto"
     t.string "mensaje"
   end
-
-=======
->>>>>>> auditoria
+  
   create_table "packages", force: :cascade do |t|
     t.string "nombre"
     t.decimal "cantidad_de_carreras"
@@ -119,10 +116,6 @@ ActiveRecord::Schema.define(version: 20171205212937) do
     t.boolean "activo", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "foto_file_name"
-    t.string "foto_content_type"
-    t.integer "foto_file_size"
-    t.datetime "foto_updated_at"
     t.string "foto"
     t.decimal "credito", default: "0.0"
     t.decimal "credito_ganancia", default: "0.0"

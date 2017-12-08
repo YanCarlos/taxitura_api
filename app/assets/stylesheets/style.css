@@ -264,6 +264,49 @@ tuor:visited {
     color: #f39c12;
 }
 
+/*---------------------------------------
+   SECTION MAP
+-----------------------------------------*/
+
+.content-list-map{
+    padding: 0;
+    margin: 0;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.content-list-map .map-list{
+    list-style: none;
+    padding-bottom: 20px;
+}
+
+.content-list-map .map-item{
+    cursor: pointer;
+}
+
+.content-list-map article > i{
+    font-size: 25px;
+    color: #ffb000;
+    display: inline-block;
+}   
+
+.content-list-map .map-list-info{
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 5px;
+}
+
+.content-list-map .map-title{
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: 600;
+}
+
+.content-list-map .map-subtitle{
+    font-size: 14px;
+    margin: 0;
+}
 
 
 /*---------------------------------------
