@@ -1,5 +1,6 @@
 class RechargeHome < ApplicationRecord
-
+  audited
+  
   before_validation do
     raise CustomError, 'La Latitud no puede contener letras.' unless is_number? self.latitud
     raise CustomError, 'La Longitud no puede contener letras.' unless is_number? self.longitud

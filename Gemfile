@@ -56,7 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'rateyo-rails', '~> 2.1', '>= 2.1.1'
 gem 'haml'                # or gem 'slim'
-gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'bootstrap_form'
 gem "font-awesome-rails"
 gem 'turbolinks'
@@ -66,5 +65,9 @@ gem 'coffee-rails'
 gem 'gibbon'
 #for print pretty in console
 gem 'awesome_print'
+gem "audited"
+gem 'neatjson'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'popper_js', '~> 1.12.3'
 
 ruby "2.4.1"

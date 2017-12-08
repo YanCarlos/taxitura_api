@@ -30,3 +30,6 @@
 //= require script.js
 //= require frequent_questions.js
 //= require maps.js
+//= require jquery3
+//= require popper
+//= require bootstrap
