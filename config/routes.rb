@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       resources :questions
       resources :recharge_homes
       resources :taxis
+      resources :assign_taxis
     end
   end
   root :controller => 'home', :action => 'home'

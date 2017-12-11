@@ -1,11 +1,12 @@
 class User < ApplicationRecord
   rolify
   has_many :recharges
+  has_and_belongs_to_many :taxis
   audited
   has_secure_password
   mount_base64_uploader :foto, DriverPhotoUploader
   validates_presence_of :nombre, :email, :telefono, :direccion, :cedula
-  
+
   before_validation do
     if self.new_record?
       self.password = self.cedula
@@ -17,9 +18,18 @@ class User < ApplicationRecord
     raise CustomError, 'Ya hay un usuario registrado con esta cedula.' if cedula_exists?
   end
 
+
+  # in this method we assigns taxis to user (type=taxi)
+  def assign_taxi taxi
+    CustomError.send('El usuario que intenta asignar con el taxi no es de tipo taxista.') unless self.has_role? :driver 
+    CustomError.send('Este taxista no puede contener mas de 4 taxis asociados.') unless self.taxis.count < 4 
+    CustomError.send('Este taxista ya tiene este taxi asociado.') if self.taxis.include? taxi
+    self.taxis << taxi
+  end
+
   
   def password_update params
-    CustomerError.send('La contrasenia antigua no puede ser vacia.') if params[:contrasenia_antigua].nil?
+    CustomError.send('La contrasenia antigua no puede ser vacia.') if params[:contrasenia_antigua].nil?
     CustomError.send('Contraseña antigua incorrecta.') unless self.authenticate params[:contrasenia_antigua]
     CustomError.send('Las nuevas contraseñas no coinciden.') unless params[:contrasenia_nueva] == params[:confirmacion_contrasenia_nueva]
     self.update_attribute('password', params[:contrasenia_nueva])
