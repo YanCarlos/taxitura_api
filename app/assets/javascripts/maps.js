@@ -72,7 +72,7 @@ function loadMarkers(sites){
   if (sites.length > 0) {
     for (var i = 0; i < sites.length; i++) {
       // Se crea el marcador el el mapa con la información del punto
-      var position_site = {lat: sites[i]['latitud'], lng: sites[i]['longitud']};
+      var position_site = {lat: parseFloat(sites[i]['latitud']), lng: parseFloat(sites[i]['longitud'])};
       marker = new google.maps.Marker({
         position: position_site,
         map: map,

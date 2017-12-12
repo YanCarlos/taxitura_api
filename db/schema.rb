@@ -134,10 +134,6 @@ ActiveRecord::Schema.define(version: 20171211041104) do
     t.boolean "activo", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "foto_file_name"
-    t.string "foto_content_type"
-    t.integer "foto_file_size"
-    t.datetime "foto_updated_at"
     t.string "foto"
     t.decimal "credito", default: "0.0"
     t.decimal "credito_ganancia", default: "0.0"
