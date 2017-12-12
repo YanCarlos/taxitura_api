@@ -294,6 +294,7 @@ tuor:visited {
     display: inline-block;
     vertical-align: top;
     padding-left: 5px;
+    max-width: 90%;
 }
 
 .content-list-map .map-title{
