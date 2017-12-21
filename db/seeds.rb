@@ -20,6 +20,56 @@ def create_admin
   u.be_admin
 end
 
+def create_service
+  s = Service.create!({
+    info: {
+      "user": {
+          "id": "1",
+          "url_pic": "https://scontent.feoh3-1.fna.fbcdn.net/v/t1.0-9/24991563_1658185514201942_2418015399189639340_n.jpg?oh=43d1c5f9a928600d33a2a7ad70c7693d&oe=5AC175B5",
+          "name": "Cristian Zapata",
+          "first_name": "Cristian",
+          "last_name": "Zapata"
+      },
+      "position_user": {
+          "latitude": 4.4541073,
+          "longitude": -75.7905437,
+          "addressFull": "Cl. 13 #4c-1 a 4c-83, La Tebaida, El Brillante, La Tebaida, Quindío, Colombia",
+          "address": "Cl. 13 #4c-1 a 4c-83,  La Tebaida"
+      },
+      "action": "arrive",
+      "service": {
+          "id": 1513376601239,
+          "origin": "facebook",
+          "date_creation": "2017-12-15T22:23:21.239Z"
+      },
+      "cabman": {
+          "id": 12,
+          "name": "Conductor de prueba",
+          "photo": "http://www.taxitura.com/uploads/profile_photo/user/foto/12/foto.jpeg"
+      },
+      "position_cabman": {
+          "distance": 652,
+          "time": 195,
+          "latitude": 4.45386772,
+          "longitude": -75.78721474
+      },
+      "quality": {
+         quality: {
+           origin: 'facebook',
+           value: "3",
+           date: "02/05/34"
+         },
+         user: {
+           id: "1"
+         },
+         service: {
+           id: "1"
+         }
+       }
+    }
+  })
+end
+
 def create_conductor
   u = User.new({
     nombre: 'Conductor de prueba',
@@ -114,3 +164,4 @@ User.delete_all
 1.times { create_conductor }
 8.times { create_conductores }
 1.times { create_packages } 
+1.times { create_service }

@@ -1,42 +1,57 @@
 module Api::V1
-class ServicesController < ApplicationController
-	before_action :set_service, only:[:update, :show, :destroy]
+  class ServicesController < ApplicationController
+    before_action :set_service, only:[:update, :show, :destroy]
 
-	include Concerns::Response
+    
+    include Concerns::Response
 
-	def index
-		if params[:driver_id]
-			#@services = Service.where("info -> 'user' ? :id", id: '2')
-			@services = Service.all
-		end
-		#Service.create(info: {"user"=>["id"=>['6']]})
-		
-		
-    json_response(@services, @services.count)
-	end
+    def index
+      unless filter
+        @services = Service.all
+        json_response(@services, @services.count)
+      end
+    end
 
-	def show
-	end
+    def show
+      json_response(@service)
+    end
 
-	def destroy
-		@service.destroy
-		json_response(@service, :deleted)
-	end
+    def destroy
+      @service.destroy
+      json_response(@service, :deleted)
+    end
 
-	def create
-		@service = Service.create!(services_params)
-    json_response(@service, :created)
-	end
+    def create
+      @service = Service.create!(services_params)
+      json_response(@service, :created)
+    end
 
-	private
-		def services_params
-			params.permit(
-				:info
-			)
-		end
+    def update
+      @service = Service.update!(services_params)
+      json_response(@service, :updated)
+    end
 
-		def set_service
-			@service = Service.find(params[:id])
-		end
-end
+    private
+      def services_params
+        params.permit(
+          :info
+        )
+      end
+
+      def set_service
+        @service = ServicesHelper.get_service_by_id params[:id].to_i
+      end
+
+      def filter
+        return unless params[:filter_type] and params[:filter_params]
+        if params[:filter_type] == "driver"
+          @services = ServicesHelper.get_services_by_driver params[:filter_params].to_i
+        elsif params[:filter_type] == "user"
+          @services = ServicesHelper.get_services_by_user params[:filter_params]
+        elsif params[:filter_type] == "status"
+          @services = ServicesHelper.get_services_by_status params[:filter_params]
+        end
+        json_response(@services, @services.count)
+      end
+  end
 end
