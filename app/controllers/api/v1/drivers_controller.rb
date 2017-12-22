@@ -4,8 +4,10 @@ module Api::V1
     before_action :get_foto, only: [:create, :update]
 
     def index
-      @drivers = User.order(nombre: :asc).with_role :driver
-      json_response(@drivers, @drivers.count)
+      unless filter
+        @drivers = User.order(nombre: :asc).with_role :driver
+        json_response(@drivers, @drivers.count)
+      end
     end
 
     def show
@@ -45,6 +47,12 @@ module Api::V1
     def get_foto
       return if params[:foto].nil?
       params[:foto] = params[:foto]["content"]
+    end
+
+   def filter
+      return unless params[:search]
+        @drivers = DriversHelper.get_driver_by_search params[:search]
+        json_response(@drivers, @drivers.count)
     end
 
   end
