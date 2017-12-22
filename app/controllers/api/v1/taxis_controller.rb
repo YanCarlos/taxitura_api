@@ -4,8 +4,10 @@ class TaxisController < BaseController
 	before_action :set_taxi, only:[:update, :destroy, :show]
 
 	def index
-		@taxis = Taxi.all
-		json_response(@taxis, @taxis.count)
+		unless filter
+			@taxis = Taxi.all
+			json_response(@taxis, @taxis.count)
+		end
 	end
 
 	def create
@@ -46,6 +48,12 @@ class TaxisController < BaseController
 		def set_taxi
 			@taxi = Taxi.find(params[:id])
 		end
+
+		def filter
+	      return unless params[:search]
+	      @taxis = TaxisHelper.get_taxi_by_search params[:search]
+	      json_response(@taxis, @taxis.count)
+	    end
 
 	end
 end 

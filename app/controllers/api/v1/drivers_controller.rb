@@ -49,10 +49,10 @@ module Api::V1
       params[:foto] = params[:foto]["content"]
     end
 
-   def filter
+    def filter
       return unless params[:search]
-        @drivers = DriversHelper.get_driver_by_search params[:search]
-        json_response(@drivers, @drivers.count)
+      @drivers = DriversHelper.get_driver_by_search params[:search]
+      json_response(@drivers, @drivers.count)
     end
 
   end
