@@ -17,4 +17,9 @@ module ServicesHelper
     Service.where('info @> ?', {service: {id: id}}.to_json)[0]
   end
 
+
+  def self.get_service_by_date one, two
+    Service.where('info @> BETWEEN ? AND ?', {service: {date_creation: one}}.to_json, {service: {date_creation: two}}.to_json)
+  end
+
 end
