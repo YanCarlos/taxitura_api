@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(version: 20171215232625) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "taxis_users", force: :cascade do |t|
+  create_table "taxis_users", id: false, force: :cascade do |t|
     t.bigint "taxi_id", null: false
     t.bigint "user_id", null: false
     t.index ["taxi_id", "user_id"], name: "index_taxis_users_on_taxi_id_and_user_id"
