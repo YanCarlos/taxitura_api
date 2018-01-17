@@ -20,6 +20,21 @@ def create_admin
   u.be_admin
 end
 
+def create_assistant
+  u = User.new({
+    nombre: 'Assistant',
+    cedula: '12345',
+    telefono: Faker::Number.number(10),
+    email: 'taxituraasistant@gmail.com',
+    direccion: Faker::Address.street_address,
+    password: '12345',
+    token: Faker::Crypto.md5,
+    activo: true
+  })
+  u.save!
+  u.be_assistant
+end
+
 def create_service
   s = Service.create!({
     info: {
@@ -170,6 +185,7 @@ end
 
 User.delete_all
 1.times { create_admin }
+1.times { create_assistant }
 1.times { create_conductor }
 8.times { create_conductores }
 1.times { create_packages } 

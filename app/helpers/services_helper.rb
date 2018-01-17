@@ -18,7 +18,7 @@ module ServicesHelper
   end
 
   def self.get_last_service id
-    Service.where('info @> ? OR info @> ? OR info @> ? OR info @> ?', {action: "accept"}.to_json, {action: "arrive"}.to_json, {action: "aboard"}.to_json, {action: "cancel"}.to_json).where('info @> ?', {cabman: {id: id}}.to_json).order(created_at: :desc).limit(1)
+    Service.where('info @> ? OR info @> ? OR info @> ? OR info @> ?', {action: "accept"}.to_json, {action: "arrive"}.to_json, {action: "aboard"}.to_json, {action: "cancel"}.to_json).where('info @> ?', {user: {id: "#{id}"}}.to_json).order(created_at: :desc).limit(1)
   end
 
 end
