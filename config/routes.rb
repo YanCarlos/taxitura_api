@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resources :taxis
       resources :assign_taxis
       resources :services
+      resources :charts
     end
   end
   root :controller => 'home', :action => 'home'

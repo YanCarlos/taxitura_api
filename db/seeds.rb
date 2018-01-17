@@ -20,6 +20,21 @@ def create_admin
   u.be_admin
 end
 
+def create_assistant
+  u = User.new({
+    nombre: 'Assistant',
+    cedula: '12345',
+    telefono: Faker::Number.number(10),
+    email: 'taxituraasistant@gmail.com',
+    direccion: Faker::Address.street_address,
+    password: '12345',
+    token: Faker::Crypto.md5,
+    activo: true
+  })
+  u.save!
+  u.be_assistant
+end
+
 def create_service
   s = Service.create!({
     info: {
@@ -36,14 +51,14 @@ def create_service
           "addressFull": "Cl. 13 #4c-1 a 4c-83, La Tebaida, El Brillante, La Tebaida, Quindío, Colombia",
           "address": "Cl. 13 #4c-1 a 4c-83,  La Tebaida"
       },
-      "action": "arrive",
+      "action": "aboard",
       "service": {
           "id": 1513376601239,
           "origin": "facebook",
           "date_creation": "2017-12-15T22:23:21.239Z"
       },
       "cabman": {
-          "id": 12,
+          "id": 102,
           "name": "Conductor de prueba",
           "photo": "http://www.taxitura.com/uploads/profile_photo/user/foto/12/foto.jpeg"
       },
@@ -53,10 +68,19 @@ def create_service
           "latitude": 4.45386772,
           "longitude": -75.78721474
       },
+      "date": {      
+        "creation": "2017-12-15T22:23:21.239Z", ### Fecha en la que el usuario crea el servicio - esto pasa en el bot
+        "interface": "2017-12-15T22:23:15.239Z", ### Fecha en la que la interfaz crea e inicia a procesar el servicio
+        "accept": "2017-12-15T21:16:00.239Z", ### fecha en la cual se acepta el servicio
+        "arrive": "2017-12-15T22:23:21.239Z" , ### fecha en la cual el taxista indica que llego
+        "aboard": "2017-12-15T22:23:21.239Z", ## fecha en la cual aborda el taxi el usuario
+        "end": "2017-12-16T22:45:23.309Z", ### fecha en la que termina el servicio
+        "cancel": "2017-12-15T22:23:21.239Z" ##E fecha en la cual se cancela el servicio en algun caso
+     },
       "quality": {
          quality: {
            origin: 'facebook',
-           value: "3",
+           value: "4",
            date: "02/05/34"
          },
          user: {
@@ -161,6 +185,7 @@ end
 
 User.delete_all
 1.times { create_admin }
+1.times { create_assistant }
 1.times { create_conductor }
 8.times { create_conductores }
 1.times { create_packages } 

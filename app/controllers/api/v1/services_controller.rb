@@ -50,6 +50,8 @@ module Api::V1
           @services = ServicesHelper.get_services_by_user params[:filter_params]
         elsif params[:filter_type] == "status"
           @services = ServicesHelper.get_services_by_status params[:filter_params]
+        elsif params[:filter_type] == "last"
+          @services = ServicesHelper.get_last_service params[:filter_params].to_i
         end
         json_response(@services, @services.count)
       end
