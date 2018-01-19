@@ -1,7 +1,6 @@
 module Api::V1
   class ServicesController < ApplicationController
     before_action :set_service, only:[:update, :show, :destroy]
-
     
     include Concerns::Response
 
