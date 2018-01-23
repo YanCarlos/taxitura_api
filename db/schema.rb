@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215232625) do
+ActiveRecord::Schema.define(version: 20180123180303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,10 +100,9 @@ ActiveRecord::Schema.define(version: 20171215232625) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.jsonb "info", default: {}
+    t.jsonb "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["info"], name: "index_services_on_info", using: :gin
   end
 
   create_table "subscribers", force: :cascade do |t|
@@ -144,6 +143,7 @@ ActiveRecord::Schema.define(version: 20171215232625) do
     t.string "foto"
     t.decimal "credito", default: "0.0"
     t.decimal "credito_ganancia", default: "0.0"
+    t.boolean "welcome"
     t.index ["cedula"], name: "index_users_on_cedula", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
   end
