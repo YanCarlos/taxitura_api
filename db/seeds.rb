@@ -180,6 +180,14 @@ def create_packages
     utilidad_taxista: 35,
     valor_de_paquete: 105000,
   ).find_or_create_by(nombre: 'Paquete #7')
+
+ pack8 = Package.create_with(
+    nombre: "Paquete Bienvenida",
+    cantidad_de_carreras: 35,
+    valor_de_carrera: 0,
+    utilidad_taxista: 100,
+    valor_de_paquete: 0,
+  ).find_or_create_by(nombre: 'Paquete Bienvenida')
  
 end
 
