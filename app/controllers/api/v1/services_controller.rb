@@ -42,7 +42,7 @@ module Api::V1
       end
 
       def filter
-        return unless params[:filter_type] and params[:filter_params]
+        return unless (params[:filter_type] and params[:filter_params]) || (params[:filter_type] and params[:initial_date] and params[:end_date])
         if params[:filter_type] == "driver"
           @services = ServicesHelper.get_services_by_driver params[:filter_params].to_i
         elsif params[:filter_type] == "user"
@@ -51,6 +51,8 @@ module Api::V1
           @services = ServicesHelper.get_services_by_status params[:filter_params]
         elsif params[:filter_type] == "last"
           @services = ServicesHelper.get_last_service params[:filter_params].to_i
+        elsif params[:filter_type] == "day"
+          @services = ServicesHelper.get_service_by_date params[:initial_date], params[:end_date]
         end
         json_response(@services, @services.count)
       end
