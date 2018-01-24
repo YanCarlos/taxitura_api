@@ -41,7 +41,8 @@ class TaxisController < BaseController
 				:nombre_propietario,
 				:telefono_propietario,
 				:proxima_revision,
-				:activo
+				:activo,
+				:ocupado
 			)
 		end 
 
