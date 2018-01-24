@@ -16,7 +16,8 @@ class AuthenticationController < ApplicationController
         created_at: @user.created_at,
         updated_at: @user.updated_at,
         foto: @user.foto,
-        credito: @user.credito + @user.credito_ganancia,
+        credito: @user.credito,
+        credito_ganancia: @user.credito_ganancia,
         taxis: @user.taxis
       }
       render json: res, status: 200
