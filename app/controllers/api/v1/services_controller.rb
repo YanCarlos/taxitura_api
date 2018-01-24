@@ -26,7 +26,7 @@ module Api::V1
     end
 
     def update
-      @service = Service.update!(services_params)
+      @service.update!(services_params)
       json_response(@service, :updated)
     end
 
