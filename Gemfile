@@ -25,9 +25,12 @@ gem 'puma', '~> 3.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
 end
 
 group :development do
@@ -36,6 +39,35 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+gem 'rack-cors', '~> 1.0', '>= 1.0.1'
+gem 'bcrypt'
+gem 'faker'
+gem 'rolify'
+gem 'active_model_serializers', '~> 0.10.0'
+
+# File upload
+gem 'carrierwave', :git => 'https://github.com/carrierwaveuploader/carrierwave.git'
+gem 'carrierwave-base64'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+gem 'rateyo-rails', '~> 2.1', '>= 2.1.1'
+gem 'haml'                # or gem 'slim'
+gem 'bootstrap_form'
+gem "font-awesome-rails"
+gem 'turbolinks'
+gem 'jbuilder'
+gem 'coffee-rails'
+#for mailchimp
+gem 'gibbon'
+#for print pretty in console
+gem 'awesome_print'
+gem "audited"
+gem 'neatjson'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'popper_js', '~> 1.12.3'
+
+ruby "2.4.1"

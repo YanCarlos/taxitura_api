@@ -1,0 +1,6 @@
+development:
+  SIT_MOBILE_DOMAIN: 'http://httpgateway.sitmobile.com'
+  SIT_MOBILE_USER: 'entercol'
+  SIT_MOBILE_PASSWORD: 'enter123'
+  SIT_MOBILE_CLIENT_ID: '29937'
+  SIT_MOBILE_ACCOUNT_ID: '59399'
