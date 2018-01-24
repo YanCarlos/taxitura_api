@@ -22,7 +22,7 @@ module ServicesHelper
   end
 
   def self.get_service_by_date one, two
-    Service.where('info @> BETWEEN ? AND ?', {service: {date_creation: one}}.to_json, {service: {date_creation: two}}.to_json)
+    Service.where('created_at BETWEEN ? AND ?', one.to_time, two.to_time)
   end
 
 end
