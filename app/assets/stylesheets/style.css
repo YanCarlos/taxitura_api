@@ -158,7 +158,8 @@ p {
 .header {
   background: url(home_t.jpg);
   background-size: cover;
-	background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  padding: 0;
 	/*height: 200vh;*/
 }
 .header .section_overlay {
