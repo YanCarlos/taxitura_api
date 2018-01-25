@@ -21,8 +21,8 @@ module ServicesHelper
     Service.where('info @> ? OR info @> ? OR info @> ? OR info @> ?', {action: "accept"}.to_json, {action: "arrive"}.to_json, {action: "aboard"}.to_json, {action: "cancel"}.to_json).where('info @> ?', {user: {id: "#{id}"}}.to_json).order(created_at: :desc).limit(1)
   end
 
-  def self.get_service_by_date one, two
-    Service.where('info @> BETWEEN ? AND ?', {service: {date_creation: one}}.to_json, {service: {date_creation: two}}.to_json)
+  def self.get_service_by_date one, two, id
+    Service.where('created_at BETWEEN ? AND ?', one.to_time, two.to_time).where('info @> ?', {cabman: {id: id.to_i}}.to_json)
   end
 
 end
