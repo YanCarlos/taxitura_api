@@ -1,8 +1,9 @@
-# Change to match your CPU core count
+plugin 'tmp_restart'
+
 workers 2
 
 # Min and Max threads per worker
-threads 1, 6
+threads 1, ENV['MAX_THREADS']
 
 app_dir = File.expand_path("../..", __FILE__)
 shared_dir = "#{app_dir}/shared"
