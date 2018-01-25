@@ -11,9 +11,9 @@ def create_admin
     cedula: '12345678',
     telefono: Faker::Number.number(10),
     email: 'taxituraadmin@gmail.com',
-    direccion: Faker::Address.street_address,
-    password: '12345678',
-    token: Faker::Crypto.md5,
+    direccion: 'Taxitura',
+    password: '@12345Abc',
+    token: 'tokentaxitura2017Abc',
     activo: true
   })
   u.save!
@@ -33,65 +33,6 @@ def create_assistant
   })
   u.save!
   u.be_assistant
-end
-
-def create_service
-  s = Service.create!({
-    info: {
-      "user": {
-          "id": "1",
-          "url_pic": "https://scontent.feoh3-1.fna.fbcdn.net/v/t1.0-9/24991563_1658185514201942_2418015399189639340_n.jpg?oh=43d1c5f9a928600d33a2a7ad70c7693d&oe=5AC175B5",
-          "name": "Cristian Zapata",
-          "first_name": "Cristian",
-          "last_name": "Zapata"
-      },
-      "position_user": {
-          "latitude": 4.4541073,
-          "longitude": -75.7905437,
-          "addressFull": "Cl. 13 #4c-1 a 4c-83, La Tebaida, El Brillante, La Tebaida, Quindío, Colombia",
-          "address": "Cl. 13 #4c-1 a 4c-83,  La Tebaida"
-      },
-      "action": "aboard",
-      "service": {
-          "id": 1513376601239,
-          "origin": "facebook",
-          "date_creation": "2017-12-15T22:23:21.239Z"
-      },
-      "cabman": {
-          "id": 102,
-          "name": "Conductor de prueba",
-          "photo": "http://www.taxitura.com/uploads/profile_photo/user/foto/12/foto.jpeg"
-      },
-      "position_cabman": {
-          "distance": 652,
-          "time": 195,
-          "latitude": 4.45386772,
-          "longitude": -75.78721474
-      },
-      "date": {      
-        "creation": "2017-12-15T22:23:21.239Z", ### Fecha en la que el usuario crea el servicio - esto pasa en el bot
-        "interface": "2017-12-15T22:23:15.239Z", ### Fecha en la que la interfaz crea e inicia a procesar el servicio
-        "accept": "2017-12-15T21:16:00.239Z", ### fecha en la cual se acepta el servicio
-        "arrive": "2017-12-15T22:23:21.239Z" , ### fecha en la cual el taxista indica que llego
-        "aboard": "2017-12-15T22:23:21.239Z", ## fecha en la cual aborda el taxi el usuario
-        "end": "2017-12-16T22:45:23.309Z", ### fecha en la que termina el servicio
-        "cancel": "2017-12-15T22:23:21.239Z" ##E fecha en la cual se cancela el servicio en algun caso
-     },
-      "quality": {
-         quality: {
-           origin: 'facebook',
-           value: "4",
-           date: "02/05/34"
-         },
-         user: {
-           id: "1"
-         },
-         service: {
-           id: "1"
-         }
-       }
-    }
-  })
 end
 
 def create_conductor
@@ -197,4 +138,3 @@ User.delete_all
 1.times { create_conductor }
 8.times { create_conductores }
 1.times { create_packages } 
-1.times { create_service }
