@@ -100,9 +100,10 @@ ActiveRecord::Schema.define(version: 20180124202801) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.jsonb "info"
+    t.jsonb "info", default: {}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["info"], name: "index_services_on_info", using: :gin
   end
 
   create_table "subscribers", force: :cascade do |t|
