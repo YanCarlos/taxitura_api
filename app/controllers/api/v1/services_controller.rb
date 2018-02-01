@@ -55,6 +55,8 @@ module Api::V1
           @services = ServicesHelper.get_last_service_cabman params[:filter_params].to_i
         elsif params[:filter_type] == "day"
           @services = ServicesHelper.get_service_by_date params[:initial_date], params[:end_date], params[:filter_params]
+        elsif params[:filter_type] == "multiple_services"
+          @services = ServicesHelper.get_service_by_ids params[:filter_params]
         end
         json_response(@services, @services.count)
       end

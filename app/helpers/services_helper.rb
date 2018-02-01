@@ -27,4 +27,18 @@ module ServicesHelper
   def self.get_service_by_date one, two, id
     Service.where('created_at BETWEEN ? AND ?', one.to_time, two.to_time).where('info @> ?', {cabman: {id: id.to_i}}.to_json)
   end
+
+  def self.get_service_by_ids ids
+    lista_ids = ids.split(',')
+    servicios = []
+
+    for i in (0..(lista_ids.count) - 1)
+      temp = Service.where('info @> ?', {service: {id: lista_ids[i].to_i}}.to_json).where('info @> ?', {action: "order"}.to_json)
+      if temp.count > 0
+        servicios.push(temp.to_json)
+      end
+    end
+
+    servicios
+  end
 end
