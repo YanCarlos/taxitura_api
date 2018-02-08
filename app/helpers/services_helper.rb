@@ -43,6 +43,10 @@ module ServicesHelper
       end
     end
 
-    servicios
+    for i in (0..(servicios.count)- 1)
+      servicios[i] = JSON.parse(servicios[i])
+    end
+
+    servicios[0]
   end
 end

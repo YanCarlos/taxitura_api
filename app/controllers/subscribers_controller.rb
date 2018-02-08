@@ -3,13 +3,13 @@ class SubscribersController < ApplicationController
 
   def create
     if @subscriber
-      flash[:success] = 'Ya estas suscrito a nuestro boletín informativo.'
+      flash[:success_subs] = 'Ya estas suscrito a nuestro boletín informativo.'
     else
       @subscriber = Subscriber.new(subscriber_params)
       if @subscriber.save and Subscribers.add_subscriber @subscriber.email
-        flash[:success] = 'Te has suscrito a nuestro boletín informativo de manera exitosa.'
+        flash[:success_subs] = 'Te has suscrito a nuestro boletín informativo de manera exitosa.'
       else
-        flash[:error] = "Hubo un erro al intentar suscribirte a nuestro boletín informativo."
+        flash[:error_subs] = "Hubo un erro al intentar suscribirte a nuestro boletín informativo."
       end
     end
     
