@@ -43,10 +43,19 @@ module ServicesHelper
       end
     end
 
+    servicios_temp = "";
     for i in (0..(servicios.count)- 1)
       servicios[i] = JSON.parse(servicios[i])
+      
+      if i < (servicios.count) - 1
+        servicios_temp += servicios[i].join(',') + ','
+      else
+        servicios_temp += servicios[i].join(',')
+      end
     end
-
-    servicios[0]
+    servicios_temp += ""
+    
+    servicios.clear.push(servicios_temp)
+    servicios
   end
 end
