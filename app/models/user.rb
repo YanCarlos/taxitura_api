@@ -22,17 +22,16 @@ class User < ApplicationRecord
   # in this method we assigns taxis to user (type=taxi)
   def assign_taxi taxi
     CustomError.send('El usuario que intenta asignar con el taxi no es de tipo taxista.') unless self.has_role? :driver 
-    CustomError.send('Este taxista no puede contener mas de 4 taxis asociados.') unless self.taxis.count < 4 
+    CustomError.send('Este taxista no puede contener mas de 1 taxi asociado.') unless self.taxis.count < 1 
     CustomError.send('Este taxista ya tiene este taxi asociado.') if self.taxis.include? taxi
     self.taxis << taxi
   end
 
   
   def password_update params
-    CustomError.send('La contrasenia antigua no puede ser vacia.') if params[:contrasenia_antigua].nil?
+    CustomError.send('La contraseña antigua no puede ser vacia.') if params[:contrasenia_antigua].nil?
     CustomError.send('Contraseña antigua incorrecta.') unless self.authenticate params[:contrasenia_antigua]
     CustomError.send('Las nuevas contraseñas no coinciden.') unless params[:contrasenia_nueva] == params[:confirmacion_contrasenia_nueva]
-    self.update_attribute('password', params[:contrasenia_nueva])
   end
 
   def be_admin
@@ -71,5 +70,11 @@ class User < ApplicationRecord
     token = ''
     length.times { token << chars[rand(chars.size)] }
     self.update_attribute(:token, token)
+  end
+
+  def validate_taxi
+    CustomError.send('Necesita tener un taxi asignado.') unless self.taxis.count > 0
+    CustomError.send('El taxi asignado se encuentra ocupado.') unless JSON.parse(self.taxis.to_json)[0]['ocupado'] != true
+    self.taxis.update({ocupado: true})
   end
 end

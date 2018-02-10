@@ -20,6 +20,9 @@ class AuthenticationController < ApplicationController
         credito_ganancia: @user.credito_ganancia,
         taxis: @user.taxis
       }
+
+      @user.validate_taxi
+
       render json: res, status: 200
     else
       acceso_denegado
