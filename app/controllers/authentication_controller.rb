@@ -21,7 +21,9 @@ class AuthenticationController < ApplicationController
         taxis: @user.taxis
       }
 
-      @user.validate_taxi
+      if @user.has_role? :driver
+        @user.validate_taxi
+      end
 
       render json: res, status: 200
     else
