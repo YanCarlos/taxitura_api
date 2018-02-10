@@ -23,6 +23,9 @@ module Api::V1
 
     def logout
     	@user.update_attribute(:token, nil)
+      if @user.has_role? :driver
+        @user.taxis.update({:ocupado => false})
+      end
     	json_response(@user)
     end
 
