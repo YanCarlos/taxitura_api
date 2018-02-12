@@ -2,7 +2,7 @@ class AuthenticationController < ApplicationController
   before_action :set_user, only: [:autenthicate_user, :logout_user]
 
   def autenthicate_user
-    if @user and @user.authenticate params[:password] and @user.generate_token
+    if @user and @user.authenticate params[:password] 
       res = {
         id: @user.id,
         nombre: @user.nombre,
@@ -23,6 +23,10 @@ class AuthenticationController < ApplicationController
 
       if @user.has_role? :driver
         @user.validate_taxi
+      end
+
+      if !@user.generate_token
+        acceso_denegado
       end
 
       render json: res, status: 200
