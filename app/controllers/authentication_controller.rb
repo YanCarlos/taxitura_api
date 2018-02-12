@@ -3,6 +3,14 @@ class AuthenticationController < ApplicationController
 
   def autenthicate_user
     if @user and @user.authenticate params[:password] 
+      if @user.has_role? :driver
+        @user.validate_taxi
+      end
+
+      if !@user.generate_token
+        acceso_denegado
+      end
+
       res = {
         id: @user.id,
         nombre: @user.nombre,
@@ -20,14 +28,6 @@ class AuthenticationController < ApplicationController
         credito_ganancia: @user.credito_ganancia,
         taxis: @user.taxis
       }
-
-      if @user.has_role? :driver
-        @user.validate_taxi
-      end
-
-      if !@user.generate_token
-        acceso_denegado
-      end
 
       render json: res, status: 200
     else
