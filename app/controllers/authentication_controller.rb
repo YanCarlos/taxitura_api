@@ -20,6 +20,11 @@ class AuthenticationController < ApplicationController
         credito_ganancia: @user.credito_ganancia,
         taxis: @user.taxis
       }
+
+      if @user.has_role? :driver
+        @user.validate_taxi
+      end
+
       render json: res, status: 200
     else
       acceso_denegado
