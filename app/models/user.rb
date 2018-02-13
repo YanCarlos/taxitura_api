@@ -73,8 +73,14 @@ class User < ApplicationRecord
   end
 
   def validate_taxi
-    CustomError.send('Necesita tener un taxi asignado.') unless self.taxis.count > 0
-    CustomError.send('El taxi asignado se encuentra ocupado.') unless JSON.parse(self.taxis.to_json)[0]['ocupado'] != true
-    self.taxis.update({ocupado: true})
+    if self.taxis.count > 0 && JSON.parse(self.taxis.to_json)[0]['ocupado'] != true
+      self.taxis.update({ocupado: true})
+      return true
+    else
+      return false
+    end
+    #CustomError.send('Necesita tener un taxi asignado.') unless 
+    #CustomError.send('El taxi asignado se encuentra ocupado.') unless JSON.parse(self.taxis.to_json)[0]['ocupado'] != true
+    
   end
 end

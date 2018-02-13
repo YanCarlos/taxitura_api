@@ -2,7 +2,17 @@ class AuthenticationController < ApplicationController
   before_action :set_user, only: [:autenthicate_user, :logout_user]
 
   def autenthicate_user
-    if @user and @user.authenticate params[:password] and @user.generate_token
+    if @user and @user.authenticate params[:password] 
+      if @user.has_role? :driver
+        if !@user.validate_taxi
+          return error_taxi
+        end
+      end
+
+      if !@user.generate_token
+        acceso_denegado
+      end
+
       res = {
         id: @user.id,
         nombre: @user.nombre,
@@ -20,10 +30,6 @@ class AuthenticationController < ApplicationController
         credito_ganancia: @user.credito_ganancia,
         taxis: @user.taxis
       }
-
-      if @user.has_role? :driver
-        @user.validate_taxi
-      end
 
       render json: res, status: 200
     else
@@ -53,6 +59,13 @@ class AuthenticationController < ApplicationController
   def acceso_denegado
     res = {
       message: 'acceso_denegado'
+    }
+    render json: res, status: 401
+  end
+
+  def error_taxi
+    res = {
+      message: 'Por favor verifique que el taxi asignado no se encuentre ocupado'
     }
     render json: res, status: 401
   end
