@@ -19,7 +19,7 @@ module Api::V1
 
     def me
       res = {
-        id: 1
+        id: @user.id
       }
       json_response(res)
     end
