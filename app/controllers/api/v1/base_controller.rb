@@ -4,7 +4,7 @@ module Api::V1
     include Concerns::ExceptionHandler
 
 
-   # before_action :is_user_authenticated?
+   before_action :is_user_authenticated?
 
     helper_method :current_user 
     
