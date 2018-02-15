@@ -19,7 +19,8 @@ module Api::V1
 
     def me
       res = {
-        id: request.env.to_s
+        id: request.env.to_s,
+        test: request.env['HTTP_USER_TOKEN']
       }
       json_response(res)
     end
