@@ -19,11 +19,21 @@ module Api::V1
 
     def me
       res = {
-        id: request.env.to_s,
-        one: request.env['HTTP_USER_TOKEN'],
-        two: request.env[:HTTP_USER_TOKEN],
-        three: request.headers[:HTTP_USER_TOKEN],
-        four: request.headers['HTTP_USER_TOKEN']
+        id: @user.id,
+        nombre: @user.nombre,
+        cedula: @user.cedula,
+        telefono: @user.telefono,
+        direccion: @user.direccion,
+        email: @user.email,
+        activo: @user.activo, 
+        token: @user.token,
+        role: @user.roles[0].name,
+        created_at: @user.created_at,
+        updated_at: @user.updated_at,
+        foto: @user.foto,
+        credito: @user.credito,
+        credito_ganancia: @user.credito_ganancia,
+        taxis: @user.taxis
       }
       json_response(res)
     end
