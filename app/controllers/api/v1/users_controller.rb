@@ -19,7 +19,7 @@ module Api::V1
 
     def me
       res = {
-        id: request.headers["X-WWW-USER-TOKEN"]
+        id: request.env.to_s
       }
       json_response(res)
     end
