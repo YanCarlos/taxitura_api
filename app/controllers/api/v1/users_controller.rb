@@ -19,7 +19,7 @@ module Api::V1
 
     def me
       res = {
-        id: @user.id
+        id: request.headers[:HTTP_USER_TOKEN]
       }
       json_response(res)
     end
