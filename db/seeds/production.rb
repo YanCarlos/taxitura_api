@@ -14,6 +14,4 @@ def create_admin
 end
 
 User.delete_all
-Package.delete_all
-Taxi.delete_all
 1.times { create_admin }
