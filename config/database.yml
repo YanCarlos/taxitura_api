@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: taxitura_api_production
-  username: taxitura_api
-  password: <%= ENV['TAXITURA_API_DATABASE_PASSWORD'] %>
+  username: api_user
+  password: <%= ENV['PASSWORD_DB'] %>
