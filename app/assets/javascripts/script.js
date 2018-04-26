@@ -148,20 +148,20 @@ $(document).ready(function() {
 //PARALLAX
 $(document).ready(function() {
 
-    "use strict";
+    // "use strict";
     
-    $(window).bind('load', function() {
-        "use strict";
-        parallaxInit();
-    });
+    // $(window).bind('load', function() {
+    //     "use strict";
+    //     parallaxInit();
+    // });
 
-    function parallaxInit() {
-        "use strict";
-        $('.home-parallax').parallax("30%", 0.1);
-        $('.subscribe-parallax').parallax("30%", 0.1);
-        $('.testimonial').parallax("10%", 1);
-        /*add as necessary*/
-    }
+    // function parallaxInit() {
+    //     "use strict";
+    //     $('.home-parallax').parallax("30%", 0.1);
+    //     $('.subscribe-parallax').parallax("30%", 0.1);
+    //     $('.testimonial').parallax("10%", 1);
+    //     /*add as necessary*/
+    // }
 });
 
 
@@ -169,15 +169,15 @@ $(document).ready(function() {
 //OWL CAROSEL
 $(document).ready(function() {
 
-    "use strict";
+    // "use strict";
     
-    $("#owl-demo").owlCarousel({
-        autoPlay: 3000,
-        items: 4, //10 items above 1000px browser width
-        itemsDesktop: [1370, 3], //5 items between 1000px and 901px
-        itemsDesktopSmall: [900, 2], // betweem 900px and 601px
-        itemsTablet: [600, 1], //2 items between 600 and 0
-    });
+    // $("#owl-demo").owlCarousel({
+    //     autoPlay: 3000,
+    //     items: 4, //10 items above 1000px browser width
+    //     itemsDesktop: [1370, 3], //5 items between 1000px and 901px
+    //     itemsDesktopSmall: [900, 2], // betweem 900px and 601px
+    //     itemsTablet: [600, 1], //2 items between 600 and 0
+    // });
 });
 
 
@@ -186,12 +186,12 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 
-    "use strict";
+    // "use strict";
 
-    $("a[rel^='prettyPhoto']").prettyPhoto({
-        show_title: false,
-        /* true/false */
-    });
+    // $("a[rel^='prettyPhoto']").prettyPhoto({
+    //     show_title: false,
+    //     /* true/false */
+    // });
 });
 
 
@@ -209,10 +209,10 @@ $(document).ready(function() {
 //RESPONSIVE VIDEO
 $(document).ready(function() {
 
-    "use strict";
+    // "use strict";
     
-    // Basic FitVids Test
-    $(".video").fitVids();
+    // // Basic FitVids Test
+    // $(".video").fitVids();
 });
 
 
@@ -305,11 +305,11 @@ $(document).ready(function() {
         });
     });
     //COUNTER
-    $('.counter_num').counterUp({
-        delay: 10,
-        time: 2000
-    });
-});
+    // $('.counter_num').counterUp({
+    //     delay: 10,
+    //     time: 2000
+    // });
+}); 
 
 
 
