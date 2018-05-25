@@ -8,11 +8,10 @@
 def create_admin
   u = User.new({
     nombre: 'Admin',
-    cedula: '12345678',
+    cedula: '1',
     telefono: Faker::Number.number(10),
     email: 'taxituraadmin@gmail.com',
     direccion: 'Taxitura',
-    password: '@12345Abc',
     token: 'tokentaxitura2017Abc',
     activo: true
   })
@@ -20,14 +19,13 @@ def create_admin
   u.be_admin
 end
 
-def create_assistant
+def create_assistant cedula
   u = User.new({
-    nombre: 'Assistant',
-    cedula: '12345',
+    nombre: "Asistente ##{cedula}",
+    cedula: cedula,
     telefono: Faker::Number.number(10),
-    email: 'taxituraasistant@gmail.com',
+    email: Faker::Internet.email,
     direccion: Faker::Address.street_address,
-    password: '12345',
     token: Faker::Crypto.md5,
     activo: true
   })
@@ -35,31 +33,16 @@ def create_assistant
   u.be_assistant
 end
 
-def create_conductor
-  u = User.new({
-    nombre: 'Conductor de prueba',
-    cedula: '123456789',
-    telefono: Faker::Number.number(10),
-    email: 'testconductor@gmail.com',
-    direccion: Faker::Address.street_address,
-    password: '123456789',
-    token: Faker::Crypto.md5,
-    activo: true
-  })
-  u.save!
-  u.be_driver
-end
 
-def create_conductores
+def create_driver cedula 
   u = User.new({
-    nombre: Faker::Name.unique.name,
-    cedula: Faker::Number.number(10),
+    nombre: "Conductor ##{cedula}",
+    cedula: cedula,
     telefono: Faker::Number.number(10),
     email: Faker::Internet.email,
     direccion: Faker::Address.street_address,
-    password: '123456',
     token: Faker::Crypto.md5,
-    activo: Faker::Boolean.boolean
+    activo: true
   })
   u.save!
   u.be_driver
@@ -134,7 +117,6 @@ end
 
 User.delete_all
 1.times { create_admin }
-1.times { create_assistant }
-1.times { create_conductor }
-8.times { create_conductores }
+2.upto(15) {|iterator| create_driver iterator}
+16.upto(21) {|iterator| create_assistant iterator}
 1.times { create_packages } 
