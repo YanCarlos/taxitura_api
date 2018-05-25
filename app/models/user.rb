@@ -58,7 +58,16 @@ class User < ApplicationRecord
 
 
   def reset_token
+    reset_taxi
     self.update_attribute(:token, nil)
+  end
+
+  def reset_taxi
+    if self.has_role? :driver
+      taxi = self.taxis.first
+      taxi.update_attribute(:ocupado, 'false')
+      taxi.update_attribute(:ocupado_por, nil)
+    end
   end
 
   def role
@@ -72,15 +81,13 @@ class User < ApplicationRecord
     self.update_attribute(:token, token)
   end
 
-  def validate_taxi
-    if self.taxis.count > 0 && JSON.parse(self.taxis.to_json)[0]['ocupado'] != true
-      self.taxis.update({ocupado: true})
-      return true
-    else
-      return false
-    end
+  def taxi_avalaible?
+    taxi = self.taxis.first
+    return false if taxi.nil?
+    return false if taxi.ocupado? && taxi.ocupado_por != self.id 
+    taxi.update_attribute(:ocupado, 'true')
+    taxi.update_attribute(:ocupado_por, self.id)
     #CustomError.send('Necesita tener un taxi asignado.') unless 
     #CustomError.send('El taxi asignado se encuentra ocupado.') unless JSON.parse(self.taxis.to_json)[0]['ocupado'] != true
-    
   end
 end

@@ -4,9 +4,7 @@ class AuthenticationController < ApplicationController
   def autenthicate_user
     if @user and @user.authenticate params[:password] 
       if @user.has_role? :driver
-        if !@user.validate_taxi
-          return error_taxi
-        end
+        return error_taxi unless @user.taxi_avalaible?
       end
 
       if !@user.generate_token
@@ -38,7 +36,7 @@ class AuthenticationController < ApplicationController
   end
 
   def logout_user
-    if @user and @user.reset_token
+    if @user && @user.reset_token
       render json: @user, status: 200
     else
       acceso_denegado
