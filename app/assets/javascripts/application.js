@@ -33,3 +33,4 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= requiere prices.js
