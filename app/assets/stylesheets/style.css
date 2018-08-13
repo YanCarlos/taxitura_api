@@ -1177,3 +1177,58 @@ select:-webkit-autofill {
         -webkit-transform: scale(1.0);
     }
 }
+
+
+.content-price{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 7px #ccc;
+    box-shadow: 2px 2px 7px #fff;
+    border: 2px solid #6b6b6b;
+    margin-bottom: 13px;
+    margin-top: 13px;
+}
+
+.content-price .price-name{
+    color: #6b6b6b;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 1px solid #a6a6a6;
+    padding-bottom: 20px;
+    font-weight: 900;
+}
+
+.content-price .content-bottom-price{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.content-price .content-bottom-price .item-bottom-price p{
+    margin: 16px 10px 0px 10px;
+    color: #6b6b6b;
+    font-weight: 100;
+}
+
+.content-price .content-bottom-price .item-bottom-price h2{
+    font-size: 28px;
+    margin: 2px 3px 3px 5px;
+    color: #00000059;
+    text-shadow: 2px 2px 1px #fff;
+    font-weight: 900;
+}
+
+a.carousel-control:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#theCarousel .carousel-control{
+    top: 13px;
+    bottom: 13px;
+    width: 80px;
+}
+
+.content-price .content-bottom-price .item-bottom-price .pay-total{
+    color: #8777e0;
+}
