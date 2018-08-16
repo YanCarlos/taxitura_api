@@ -31,11 +31,55 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
 	margin: 0 !important;
+  max-width: 100%;
 }
+
+.topbar, .main-content{
+  width: 82%;
+  float: right;
+  padding: 15px;
+}
+
+.topbar{
+  background-color: #2e353d;
+  height: 50px;
+  position: fixed;
+  right: 0;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.dropdown-menu.show{
+  position: absolute !important;
+  transform: translate3d(-103px, 32px, 0px) !important;
+  top: 0px !important;
+  left: 0px !important;
+  will-change: transform !important;;
+}
+.especial_button{
+  background: no-repeat;
+  color: #fff;
+  border: none;
+}
+.especial_button:hover, .especial_button:focus, .btn-group.open .dropdown-toggle{
+  background-color: #23282e;
+  color: #fff;
+}
+
+.main-content{
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
 p {
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
 }
+
+
 /*---------------------------------------
    COMMON STYLES
 -----------------------------------------*/
@@ -683,6 +727,9 @@ div.carousel-inner .item img {
     opacity: 1;
     background: #f39c12;
 }
+
+
+
 /*---------------------------------------
    SECTION FUN FACTS
 -----------------------------------------*/
@@ -1232,3 +1279,16 @@ a.carousel-control:hover{
 .content-price .content-bottom-price .item-bottom-price .pay-total{
     color: #8777e0;
 }
+
+/*---------------------------------------
+   margins and paddins
+-----------------------------------------*/
+
+.mt-30{
+  margin-top: 30px; 
+}
+
+.pd-0{
+  padding: 0;
+}
+

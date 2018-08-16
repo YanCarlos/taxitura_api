@@ -28,5 +28,12 @@ Rails.application.routes.draw do
       resources :charts
     end
   end
+
+  resources :taxis
+  
+  get 'users/sign_in', to: 'users#sign_in', as: :sign_in
+  get 'users/logout_user', to: 'users#logout_user', as: :logout_user
+  post 'users/sign_in', to: 'users#new_session', as: :new_session
+
   root :controller => 'home', :action => 'home'
 end

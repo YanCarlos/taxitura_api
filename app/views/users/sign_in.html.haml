@@ -1,0 +1,15 @@
+.row.mt-30
+.col-md-4
+.col-md-4
+  - flash.each do |key, value|
+    %div{:class => "alert alert-#{key}"}= value
+  .login-panel.panel.panel-default
+    .panel-heading
+      %h3.panel-title Sign In
+    .panel-body
+      = bootstrap_form_tag(url: '/users/sign_in') do |f|
+        = f.email_field :user
+        = f.password_field :password
+        = f.submit 'Log In', class: 'btn btn-sm btn-success'
+
+      

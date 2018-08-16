@@ -7,6 +7,17 @@ GIT
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
 
+GIT
+  remote: https://github.com/rails/activerecord-session_store.git
+  revision: 1eed4ba837c52695357442680e54f3c6a5b34326
+  specs:
+    activerecord-session_store (1.1.1)
+      actionpack (>= 4.0)
+      activerecord (>= 4.0)
+      multi_json (~> 1.11, >= 1.11.2)
+      rack (>= 1.5.2, < 3)
+      railties (>= 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -63,7 +74,8 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
-    bootstrap_form (2.7.0)
+    bootstrap_form (4.0.0.alpha1)
+      rails (>= 5.0)
     builder (3.2.3)
     byebug (10.0.2)
     carrierwave-base64 (2.7.0)
@@ -210,11 +222,12 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.0)
+  activerecord-session_store!
   audited
   awesome_print
   bcrypt
   bootstrap (~> 4.0.0.beta2.1)
-  bootstrap_form
+  bootstrap_form (>= 4.0.0.alpha1)
   byebug
   carrierwave!
   carrierwave-base64
