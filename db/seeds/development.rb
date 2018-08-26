@@ -48,6 +48,17 @@ def create_driver cedula
   u.be_driver
 end
 
+def create_taxi
+  placa = "#{Faker::Lorem.characters(3).upcase} #{Faker::Number.number(3)}"
+  taxi = Taxi.create_with(
+    placa: placa,
+    modelo: Faker::Number.between(2010, 20018),
+    marca: Faker::Vehicle.make,
+    nombre_propietario: Faker::Name.unique.name,
+    activo: Faker::Boolean.boolean
+  ).find_or_create_by(placa: placa)
+end
+
 def create_packages
   pack1 = Package.create_with(
     nombre: "Paquete #1",
@@ -115,8 +126,9 @@ def create_packages
  
 end
 
-User.delete_all
-1.times { create_admin }
-2.upto(15) {|iterator| create_driver iterator}
-16.upto(21) {|iterator| create_assistant iterator}
-1.times { create_packages } 
+# User.delete_all
+# 1.times { create_admin }
+# 2.upto(15) {|iterator| create_driver iterator}
+# 16.upto(21) {|iterator| create_assistant iterator}
+# 1.times { create_packages } 
+100.times { create_taxi }

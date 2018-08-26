@@ -18,7 +18,9 @@
         .topbar.brand
           = render partial: 'layouts/topbar'
         .main-content
-          = yield
+          = render partial: 'layouts/breadcrumbs'
+          .int-content
+            = yield
       - else
         .container
           = yield

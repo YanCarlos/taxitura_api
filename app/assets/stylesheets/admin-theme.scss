@@ -1,0 +1,168 @@
+@import 'variables';
+.gray-rectangle{
+	width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  background-color: #2e353d;
+  color: #4f5b69;
+  font-size: 29px;
+  display: flex;
+  flex-direction: column;
+}
+
+.taxi{
+	font-size: 14px;
+	width: 100%;
+  .marca{
+    display: flex;
+    justify-content: space-between;
+  }
+  .actions{
+    text-align: right;
+    margin-top: 5px;
+  }
+  font-weight: bold;
+  color: #545050;
+}
+
+.thumbnail .caption{
+  padding-left: 1% !important;
+  padding-right: 1% !important;
+  padding-bottom: 0 !important;
+}
+
+.topbar.brand{
+  background-color: #fff !important;
+  color: #73818f;
+  border-bottom: 1px solid #c8ced3;
+}
+
+.breadcrumb{
+  margin-left: 0;
+  margin-right: 0;
+  background-color: #fff !important;
+  border: 1px solid #c8ced3;
+  border-radius: 0.25rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+.int-content, .breadcrumb{
+  a{
+    color: $yellow-taxitura;
+    text-decoration: underline;
+    &:hover{
+      color: $yellow-taxitura;
+      background: none !important;
+      opacity: 0.7;
+      cursor: pointer;
+    }
+    &:visited{
+      color: $yellow-taxitura;
+      opacity: 0.5;
+    }
+  }
+
+  .btn-primary{
+    background-color: $yellow-taxitura  !important;
+    border: 1px solid $yellow-taxitura !important;
+    &:hover, :focus, :active, :visited, .disabled{
+      background-color: $yellow-taxitura !important;
+      border: 1px solid $yellow-taxitura !important;
+      opacity: 0.7;
+    }
+  }
+
+  .filters .row .col{
+    margin-bottom: 10px;
+    &.actions{
+      margin-top: 2%;
+      text-align: right;
+    }
+  }
+}
+
+.gray-frame{
+  height: auto;
+  min-height: 15px;
+  width: 100%;
+  background-color: #e4e5e6;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-top: 1px solid #c8ced3;
+  border-bottom: 1px solid #c8ced3;
+  &.short-frame{
+    width: auto;
+    float: right;
+  }
+}
+
+
+.taxitura-color{
+  background-color: $yellow-taxitura  !important;
+}
+
+.badge.badge-secondary.secondary{
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+  background-color: $yellow-taxitura;
+  a{
+    color: #23282c;
+    text-decoration: none;
+  }
+  
+}
+
+.model-actions{
+  width: 100%;
+  text-align: right;
+  margin-bottom: 10px;
+ 
+}
+
+.horizontal-divider{
+  border-bottom: 1px dashed #cccccc61;
+  width: 99%;
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+
+
+.opaque{
+  color: #c1bcbc;
+}
+
+
+
+.form-check{
+  input{
+    display: inline-block;
+    float: left;
+    margin-right: 8px !important;
+  }
+}
+
+
+.actions-form{
+  background-color: #f5f5f5;
+  margin-bottom: 0 ;
+  padding: 10px;
+  text-align: right;
+  margin-top: 20px;
+  border-top: 1px solid #c8ced3;
+}
+
+.form-title{
+  margin-bottom: 33px;
+  h4{
+    font-weight: bold;
+    font-size: 22px;
+    color: #394248;
+  }
+}

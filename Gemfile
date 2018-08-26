@@ -70,5 +70,8 @@ gem 'neatjson'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'popper_js', '~> 1.12.3'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+gem 'loaf'
+gem 'ransack'
+
 
 ruby "2.4.1"

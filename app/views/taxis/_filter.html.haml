@@ -1,0 +1,18 @@
+.row
+  .gray-frame
+    = search_form_for @q, class: 'filters' do |f|
+      .row
+        .col-md-2.col-sm-12.col
+          = f.label :modelo
+          = f.search_field :modelo_eq, class: 'form-control'
+        .col-md-2.col-sm-12.col
+          = f.label :placa
+          = f.search_field :placa_cont, class: 'form-control'
+        .col-md-2.col-sm-12.col-sm-12.col
+          = f.label :marca
+          = f.search_field :marca_cont, class: 'form-control'
+        .col-md-1.col-sm-12.col.actions
+          = f.submit 'Buscar', class: 'btn btn-primary'
+      
+
+

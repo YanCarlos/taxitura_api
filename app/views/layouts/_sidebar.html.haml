@@ -1,61 +1,66 @@
 .nav-side-menu
-  .brand Brand Logo
+  .brand.top-brand
+    .content-top
+      = image_tag('logo.png', class: 'logo-admin')
+      %span.badge.badge-secondary Taxitura
   %i.fa.fa-bars.fa-2x.toggle-btn{"data-target" => "#menu-content", "data-toggle" => "collapse"}
   .menu-list
     %ul#menu-content.menu-content.collapse.out
-      %li
-        %a
-          %i.fa.fa-dashboard.fa-lg
-          Dashboard
-      %li.collapsed.active{"data-target" => "#products", "data-toggle" => "collapse"}
-        %a
-          %i.fa.fa-gift.fa-lg
-          UI Elements
-          %span.arrow
-      %ul#products.sub-menu.collapse
-        %li.active
-          %a CSS3 Animation
-        %li
-          %a General
-        %li
-          %a Buttons
-        %li
-          %a Tabs  Accordions
-        %li
-          %a Typography
-        %li
-          %a FontAwesome
-        %li
-          %a Slider
-        %li
-          %a Panels
-        %li
-          %a Widgets
-        %li
-          %a Bootstrap Model
-      %li.collapsed{"data-target" => "#service", "data-toggle" => "collapse"}
-        %a
-          %i.fa.fa-globe.fa-lg
-          Services
-          %span.arrow
-      %ul#service.sub-menu.collapse
-        %li New Service 1
-        %li New Service 2
-        %li New Service 3
-      %li.collapsed{"data-target" => "#new", "data-toggle" => "collapse"}
-        %a
-          %i.fa.fa-car.fa-lg
-          New
-          %span.arrow
-      %ul#new.sub-menu.collapse
-        %li New New 1
-        %li New New 2
-        %li New New 3
-      %li
-        %a
-          %i.fa.fa-user.fa-lg
-          Profile
-      %li
-        %a
-          %i.fa.fa-users.fa-lg
-          Users
+      - if current_user.has_role? :admin
+        = render partial: 'menu/admin'
+      / %li
+      /   %a
+      /     %i.fa.fa-dashboard.fa-lg
+      /     Dashboard
+      / %li.collapsed.active{"data-target" => "#products", "data-toggle" => "collapse"}
+      /   %a
+      /     %i.fa.fa-gift.fa-lg
+      /     UI Elements
+      /     %span.arrow
+      / %ul#products.sub-menu.collapse
+      /   %li.active
+      /     %a CSS3 Animation
+      /   %li
+      /     %a General
+      /   %li
+      /     %a Buttons
+      /   %li
+      /     %a Tabs  Accordions
+      /   %li
+      /     %a Typography
+      /   %li
+      /     %a FontAwesome
+      /   %li
+      /     %a Slider
+      /   %li
+      /     %a Panels
+      /   %li
+      /     %a Widgets
+      /   %li
+      /     %a Bootstrap Model
+      / %li.collapsed{"data-target" => "#service", "data-toggle" => "collapse"}
+      /   %a
+      /     %i.fa.fa-globe.fa-lg
+      /     Services
+      /     %span.arrow
+      / %ul#service.sub-menu.collapse
+      /   %li New Service 1
+      /   %li New Service 2
+      /   %li New Service 3
+      / %li.collapsed{"data-target" => "#new", "data-toggle" => "collapse"}
+      /   %a
+      /     %i.fa.fa-car.fa-lg
+      /     New
+      /     %span.arrow
+      / %ul#new.sub-menu.collapse
+      /   %li New New 1
+      /   %li New New 2
+      /   %li New New 3
+      / %li
+      /   %a
+      /     %i.fa.fa-user.fa-lg
+      /     Profile
+      / %li
+      /   %a
+      /     %i.fa.fa-users.fa-lg
+      /     Users

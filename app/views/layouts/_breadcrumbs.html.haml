@@ -1,0 +1,9 @@
+%ol.breadcrumb
+  - breadcrumb_trail do |crumb|
+    - if "/#{controller_name}/#{action_name}" == crumb.path 
+      %li.breadcrumb-item.opaque
+        = crumb.name
+    - else
+      %li.breadcrumb-item{class: 'active'}
+        = link_to crumb.name, crumb.url, (crumb.current? ? {'aria-current' => 'page'} : {})
+      
