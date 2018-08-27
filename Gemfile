@@ -72,6 +72,8 @@ gem 'popper_js', '~> 1.12.3'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'loaf'
 gem 'ransack'
+gem 'toastr_rails'
+gem 'bootstrap-datepicker-rails'
 
 
 ruby "2.4.1"

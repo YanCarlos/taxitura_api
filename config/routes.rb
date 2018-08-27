@@ -29,7 +29,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :taxis
+  resources :taxis 
+
+  get 'logout_driver/:taxi_id/:user_id', to: 'taxis#logout_driver', as: :logout_driver_and_taxi
   
   get 'users/sign_in', to: 'users#sign_in', as: :sign_in
   get 'users/logout_user', to: 'users#logout_user', as: :logout_user

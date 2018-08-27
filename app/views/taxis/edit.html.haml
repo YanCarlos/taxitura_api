@@ -1,5 +1,9 @@
+.int-content
+	.form-title Editando taxi con placa #{@taxi.placa}
+	= render partial: 'form'
 .row
-	.col-md-12
-		.form-title
-			%h4 Editando taxi
-= render partial: 'form'
+	.col-md-4
+		= render partial: 'drivers_all'
+	.col-md-4
+		= render partial: 'drivers_in'
+	

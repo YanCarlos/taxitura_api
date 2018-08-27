@@ -21,9 +21,12 @@
 *= require font-awesome
 *= require prettyPhoto.css
 *= require animate.css
+*= require toastr_rails
+*= require bootstrap-datepicker3
 *= require responsive.css
 *= require auditoria_index.css
 *= require style.css
 *= require sidebar
 *= require admin-theme
+
 */

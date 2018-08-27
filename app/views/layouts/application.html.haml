@@ -10,6 +10,7 @@
       :cdata
     %link{:href => image_path('logo.png'), :rel => "shortcut icon", :type => "image/png"}/
   %body
+    = render 'toastr_rails/flash'
     - if is_home?
       = yield
     - else
@@ -19,8 +20,7 @@
           = render partial: 'layouts/topbar'
         .main-content
           = render partial: 'layouts/breadcrumbs'
-          .int-content
-            = yield
+          = yield
       - else
         .container
           = yield

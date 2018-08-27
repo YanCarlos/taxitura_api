@@ -13,13 +13,14 @@ class TaxisController < ApplicationController
   end
 
   def edit
+    @drivers = User.with_role(:driver).where.not(id: @taxi.users.pluck(:id)).ransack(params[:q]).result 
   end
 
   def create
-    taxi = Taxi.new(taxi_params)
-    if taxi.save
+    @taxi = Taxi.new(taxi_params)
+    if @taxi.save
       flash[:success] = 'El taxi fue registrado correctamente!'
-      redirect_to edit_taxi_path(taxi)
+      redirect_to edit_taxi_path(@taxi)
     else
       flash[:error] = 'Error al registrar el taxi!'
       render :new
@@ -37,6 +38,14 @@ class TaxisController < ApplicationController
     end
   end
 
+  def logout_driver
+    @taxi = Taxi.find(params[:taxi_id])
+    if @taxi.logout(params[:user_id])
+      redirect_back fallback_location: taxis_url, notice: 'El taxi ahora esta libre'
+    else
+      redirect_back fallback_location: taxis_url, notice: 'Problemas al cerrar sesión del taxi.'
+    end
+  end
 
 
   private
