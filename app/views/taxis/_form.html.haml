@@ -1,0 +1,28 @@
+= bootstrap_form_for(@taxi) do |f|
+  .row
+    .col-md-3
+      = f.text_field :placa, {required: 'required'}
+    .col-md-3
+      = f.text_field :marca, {required: 'required'}
+    .col-md-3
+      = f.number_field :modelo, min: 1995, max: 2099, value: Time.current.year
+    .col-md-3
+      = f.text_field :ciudad, {required: 'required'}
+  .row    
+    .col-md-3
+      = f.date_field :proxima_revision, {required: 'required'}
+    .col-md-6
+      = f.text_field :nombre_propietario, {required: 'required'}
+    .col-md-3
+      = f.text_field :telefono_propietario, {required: 'required'}
+  .row
+    .col-md-3
+      = f.check_box :baul, label: 'El taxi tiene baúl'
+    .col-md-3
+      = f.check_box :activo, label: 'Activar taxi'
+  .row
+    .actions-form
+      - if @taxi.new_record?
+        = f.submit 'Crear', class: 'btn btn-primary'
+      - else
+        = f.submit 'Actualizar', class: 'btn btn-primary'

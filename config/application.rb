@@ -34,6 +34,7 @@ module TaxituraApi
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
     config.debug_exception_response_format = :default
     config.assets.enabled = true
+    config.session_store :active_record_store
     Rails.application.config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'

@@ -803,10 +803,10 @@ FOOTER
           </div>
         </div>
       </div> -->
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="copy_right_text">
           <!-- COPYRIGHT TEXT -->
-          <p>Construido por el equipo de Taxitura con amor para ti.</p>
+          <p style="text-align: center;">Construido por el equipo de Taxitura con amor para ti.</p>
         </div>
         <div class="row">
           <div class="col-md-12 wow bounceInLeft">
@@ -819,34 +819,13 @@ FOOTER
               </ul>
             </div>
           </div>
+          <div class='col-md-12 url-login'>
+            <a href= 'users/sign_in'>Log in </a>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-6">
-        <div class="copy_right_text">
-          <p style="text-align: center;">Suscribete a nuestro boletin de noticias y mantente enterado de todo lo que pasa con "Taxitura"</p>
-           <!-- SUBSCRIPTION SUCCESSFUL OR ERROR MESSAGES -->
-           <% if flash[:success_subs] %>
-              <div class="alert alert-success" role="alert">
-                <a  class="alert-link"><%= flash[:success_subs] %></a>
-              </div>
-           <% end %>
-           <% if flash[:error_subs] %>
-              <div class="alert alert-danger" role="alert">
-                <a><%= flash[:error_subs] %></a>
-              </div>
-           <% end %>
-          <%= form_for Subscriber.new, {url: subscribers_path , role: 'form', class: 'subscribe_form', id: 'mc-form'} do |f| %>
-            <div class="form-group">
-              <!-- EMAIL INPUT BOX -->
-              <%= f.email_field :email, class: "required email form-control input-subs",placeholder: "Ingresa tu email" , :required => true, autocapitalize: "off", autocorrect: "off" %>
-            </div>
-            <!-- SUBSCRIBE BUTTON -->
-            <%= f.submit "Suscribirme" ,class: "btn btn-default subs-btn btn-subs"%>
-          <% end %>
-
-        </div>
-      </div>
+    
 
       <!-- <div class="col-md-4">
         <div class="scroll_top">

@@ -56,7 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'rateyo-rails', '~> 2.1', '>= 2.1.1'
 gem 'haml'                # or gem 'slim'
-gem 'bootstrap_form'
+gem "bootstrap_form", ">= 4.0.0.alpha1"
 gem "font-awesome-rails"
 gem 'turbolinks'
 gem 'jbuilder'
@@ -69,5 +69,11 @@ gem "audited"
 gem 'neatjson'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'popper_js', '~> 1.12.3'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+gem 'loaf'
+gem 'ransack'
+gem 'toastr_rails'
+gem 'bootstrap-datepicker-rails'
+gem 'shrine'
 
 ruby "2.4.1"

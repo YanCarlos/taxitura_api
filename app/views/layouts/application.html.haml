@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title Taxitura
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCpOuqlNsEV9WQGN4EhGFHiR9gm80IFQGM&callback=initMap"}
+      :cdata
+    %link{:href => image_path('logo.png'), :rel => "shortcut icon", :type => "image/png"}/
+  %body
+    = render 'toastr_rails/flash'
+    - if is_home?
+      = yield
+    - else
+      - if current_user
+        = render partial: 'layouts/sidebar'
+        .topbar.brand
+          = render partial: 'layouts/topbar'
+        .main-content
+          = render partial: 'layouts/breadcrumbs'
+          = yield
+      - else
+        .container
+          = yield
+

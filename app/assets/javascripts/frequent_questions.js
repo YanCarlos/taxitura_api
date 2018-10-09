@@ -26,7 +26,7 @@ $(document).ready(function(){
 		    success : function(obj) {
 		    	//var questions = '[{"id":3,"pregunta":"¿How are you?","respuesta":"Very well","tipo":"usuarios","created_at":"2017-12-01T17:34:51.980Z","updated_at":"2017-12-01T17:34:51.980Z"}, {"id":3,"pregunta":"¿Cómo estás?","respuesta":"Hola todo bien","tipo":"usuarios","created_at":"2017-12-01T17:34:51.980Z","updated_at":"2017-12-01T17:34:51.980Z"}]';
 		    	//var obj = JSON.parse(respuesta);
-		    	
+		    	console.log(obj);
 		    	if (type) {
 		    		loadFrecuentQuestions(obj, 'usuarios');
 		    	}

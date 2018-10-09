@@ -1,0 +1,11 @@
+.int-content
+  .form-title Todos los conductores
+  %table.table
+    %tbody
+      - @drivers.each do |driver|
+        %tr
+          %th{scope: 'row'}
+            = driver.nombre
+          %th{scope: 'row'}
+            - unless @taxi.users.exists?(driver.id)
+              = link_to 'Agregar al taxi', add_driver_to_taxi_path({taxi_id: @taxi.id, user_id: driver.id})

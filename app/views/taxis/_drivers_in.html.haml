@@ -1,0 +1,16 @@
+.int-content
+  .form-title Conductores asociados a este taxi
+  %table.table
+    %tbody
+      - users = @taxi.users
+      - if users.count > 0 
+        - users.each do |driver|
+          %tr
+            %th{scope: 'row'}
+              = driver.nombre
+            %th{scope: 'row'}
+              - if @taxi.es_ocupado_por? driver
+                = link_to 'Cerrar sesión', logout_driver_and_taxi_path({taxi_id: @taxi.id, user_id: driver.id}), class: 'link-red'
+      - else
+        .warning-message
+          Este taxi no tiene taxistas

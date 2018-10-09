@@ -1,0 +1,33 @@
+.int-content
+  .form-title
+    Lista de Conductores
+    .model-action
+      %span.badge.badge-secondary.secondary
+        = link_to 'Crear conductor', new_driver_path
+  = render partial: 'filter'
+  .horizontal-divider
+  .row
+    - @drivers.each do |driver|
+      .col-sm-4.col-xs-12.col-md-4.col-lg-3.driver
+        .col-md-12.col
+          .col-md-12
+            .image-driver.center
+              - if driver.foto
+                .round
+                  = image_tag driver.foto
+              - else
+                .round{style: "background-color: #{random_color}"}
+                  .text
+                    = get_short_name driver.nombre
+          .col-md-12
+            .driver-name.center
+              = driver.nombre
+          .col-md-12
+            .placas-taxista
+              - driver.taxis.each do |taxi|
+                %span.placa-taxista
+                  = taxi.placa
+              .actions.mt-10
+                = link_to 'Ver', edit_driver_path(driver)
+          
+   
