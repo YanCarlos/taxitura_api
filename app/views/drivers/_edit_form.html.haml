@@ -1,0 +1,26 @@
+= bootstrap_form_for(@driver, url: driver_path) do |f|
+  .row
+    .col-md-3
+      = f.text_field :nombre, {required: 'required'}
+    .col-md-3
+      = f.text_field :cedula, {required: 'required'}
+    .col-md-3
+      = f.email_field :email
+    .col-md-3
+      = f.phone_field :telefono
+  .row    
+    .col-md-6
+      = f.text_area :direccion
+    .col-md-3
+      = f.form_group :activo, label: { text: '¿Activar el taxista?' } do
+        = f.check_box :activo, label: 'Activar'
+    .col-md-3
+      = f.file_field :docs, as: :file, accept: DocsUploader::ALLOWED_TYPES.join(',')
+  .row
+    .col-md-3
+      - if @driver.docs
+        = link_to 'Descargar documentos', @driver.docs_url(:docs)
+  .row
+    .actions-form
+      = f.submit 'Crear', class: 'btn btn-primary'
+     

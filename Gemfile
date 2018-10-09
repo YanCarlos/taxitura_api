@@ -74,6 +74,6 @@ gem 'loaf'
 gem 'ransack'
 gem 'toastr_rails'
 gem 'bootstrap-datepicker-rails'
-
+gem 'shrine'
 
 ruby "2.4.1"

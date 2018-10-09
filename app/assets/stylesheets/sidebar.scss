@@ -53,6 +53,8 @@
 
 .menu-list .menu-content li a{
   color: #fff;
+  display: inline-block;
+  min-width: 100%;
   .arrow{
     color: #73818f;
     font-size: 8px;

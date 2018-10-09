@@ -205,3 +205,64 @@
   width: auto;
   max-width: fit-content;
 }
+
+.round{
+  border-radius: 50%;
+  overflow: hidden;
+  img{
+    max-width: 100%;
+  }
+}
+
+.image-driver{
+  margin-bottom: 10px !important;
+  width: 50%;
+  &.center{
+    margin: auto;
+  } 
+}
+
+.center{
+  text-align: center;
+}
+
+.driver-name{
+  font-size: 14px;
+  font-weight: bold;
+  color: #484646;
+}
+
+
+.mb-10{
+  margin-bottom: 10px;
+}
+
+.mt-10{
+  margin-top: 10px;
+}
+
+
+.driver{
+  padding: 2px;
+  .col{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+}
+
+.placa-taxista{
+  background-color: #ffaf17;
+  padding: 2px;
+  border-radius: 9px;
+  text-align: center;
+  color: #fff;
+  padding-right: 6px;
+  padding-left: 6px;
+}
+
+.placas-taxista{
+  margin-bottom: 15px;
+  margin-top: 15px;
+  text-align: center;
+}

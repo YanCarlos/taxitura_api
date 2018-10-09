@@ -8,4 +8,4 @@
             = driver.nombre
           %th{scope: 'row'}
             - unless @taxi.users.exists?(driver.id)
-              = link_to 'Agregar al taxi'
+              = link_to 'Agregar al taxi', add_driver_to_taxi_path({taxi_id: @taxi.id, user_id: driver.id})

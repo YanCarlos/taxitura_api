@@ -1307,3 +1307,14 @@ a.carousel-control:hover{
   padding: 0;
 }
 
+
+.url-login{
+  text-align: center; 
+  a{
+    color: #ffaf17;
+    &:hover{
+      background-color: none;
+    }
+  }
+  
+}

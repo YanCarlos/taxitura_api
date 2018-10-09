@@ -1,4 +1,4 @@
-class TaxisController < ApplicationController
+class TaxisController < LockController
   before_action :taxis, only: [:index]
   before_action :set_taxi, only: [:edit, :update]
   
@@ -44,6 +44,17 @@ class TaxisController < ApplicationController
       redirect_back fallback_location: taxis_url, notice: 'El taxi ahora esta libre'
     else
       redirect_back fallback_location: taxis_url, notice: 'Problemas al cerrar sesión del taxi.'
+    end
+  end
+
+
+  def add_driver
+    @taxista = User.find(params[:user_id])
+    @taxi = Taxi.find(params[:taxi_id])
+    if @taxista.assign_taxi(@taxi)
+      redirect_back fallback_location: taxis_url, notice: "El taxista #{@taxista.nombre} fue agreado al taxi con placas #{@taxi.placa}."
+    else
+      redirect_back fallback_location: taxis_url, notice: 'Error al asignar taxista.'
     end
   end
 

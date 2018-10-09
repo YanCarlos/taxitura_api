@@ -1,0 +1,16 @@
+.row
+  .gray-frame
+    = search_form_for @q, url: drivers_path, class: 'filters' do |f|
+      .row
+        .col-md-2.col-sm-12.col
+          = f.label :nombre
+          = f.search_field :nombre_cont, class: 'form-control'
+        .col-md-2.col-sm-12.col
+          = f.label :cedula
+          = f.search_field :cedula_start, class: 'form-control'
+        .col-md-2.col-sm-12.col-sm-12.col
+          = f.label 'Activo?'
+          = f.select :activo_false,  options_for_select([ ['Si', 0], ['No', 1] ]), { include_hidden: false }, class: 'form-control'
+        .col-md-1.col-sm-12.col.actions
+          = f.submit 'Buscar', class: 'btn btn-primary'
+    

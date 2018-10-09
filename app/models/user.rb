@@ -2,6 +2,7 @@ class User < ApplicationRecord
   rolify
   has_many :recharges
   has_and_belongs_to_many :taxis
+  include DocsUploader::Attachment.new(:docs)
   audited
   has_secure_password
   mount_base64_uploader :foto, DriverPhotoUploader
@@ -72,6 +73,10 @@ class User < ApplicationRecord
 
   def role
     self.roles[0].name
+  end
+
+  def friendly_name
+    self.nombre.gsub(' ','_').downcase
   end
 
   def generate_token(length=35)

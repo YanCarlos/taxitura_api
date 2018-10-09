@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < LockController
 	before_action :set_user, only: [:new_session, :logout_user]
 	skip_before_action :is_user_authenticated?, :only => [:sign_in, :new_session]
 

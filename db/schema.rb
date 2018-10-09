@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180826162410) do
+ActiveRecord::Schema.define(version: 20181008233556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(version: 20180826162410) do
     t.boolean "activo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "ocupado"
+    t.boolean "ocupado", default: false
     t.integer "ocupado_por"
     t.date "proxima_revision"
   end
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 20180826162410) do
     t.decimal "credito", default: "0.0"
     t.decimal "credito_ganancia", default: "0.0"
     t.boolean "welcome"
+    t.text "docs_data"
     t.index ["cedula"], name: "index_users_on_cedula", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
   end

@@ -128,7 +128,7 @@ end
 
 # User.delete_all
 # 1.times { create_admin }
-# 2.upto(15) {|iterator| create_driver iterator}
+ 5000.upto(5020) {|iterator| create_driver iterator}
 # 16.upto(21) {|iterator| create_assistant iterator}
 # 1.times { create_packages } 
-100.times { create_taxi }
+#100.times { create_taxi }
