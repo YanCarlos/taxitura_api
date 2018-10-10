@@ -67,7 +67,7 @@ gem 'gibbon'
 gem 'awesome_print'
 gem "audited"
 gem 'neatjson'
-gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'bootstrap'
 gem 'popper_js', '~> 1.12.3'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'loaf'
