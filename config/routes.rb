@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'recharge_homes/index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   get '/auth', to: 'authentication#autenthicate_user'
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
   resources :taxis 
   resources :drivers 
   resources :packages
+  resources :recharge_homes
 
   get 'logout_driver/:taxi_id/:user_id', to: 'taxis#logout_driver', as: :logout_driver_and_taxi
   get 'add_driver_to_taxi/:taxi_id/:user_id', to: 'taxis#add_driver', as: :add_driver_to_taxi

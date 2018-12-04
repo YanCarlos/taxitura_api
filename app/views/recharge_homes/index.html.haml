@@ -1,0 +1,30 @@
+.int-content
+  .form-title
+    Lista de puntos de recarga
+    .model-action
+      %span.badge.badge-secondary.secondary
+        = link_to 'Crear punto de recarga', new_recharge_home_path
+  .row 
+    .col-sm-12.col-lg-12
+      %table.table.table-bordered
+        %thead
+          %tr
+            %td Nombre
+            %td Dirección
+            %td Latitud
+            %td Longitud
+            %td Acciones
+        %tbody
+          - @homes.each do |h|
+            %tr
+              %td
+                = h.nombre
+              %td
+                = h.direccion
+              %td
+                = h.latitud
+              %td
+                = h.longitud
+              %td
+                = icon_link_to '', edit_recharge_home_path(h.id), 'fa-pencil'
+                = icon_link_to_delete '', h
