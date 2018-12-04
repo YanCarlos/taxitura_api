@@ -1,0 +1,33 @@
+.int-content
+  .form-title
+    Lista de paquetes
+    .model-action
+      %span.badge.badge-secondary.secondary
+        = link_to 'Crear paquete', new_package_path
+  .row 
+    .col-sm-12.col-lg-12
+      %table.table.table-bordered
+        %thead
+          %tr
+            %td Nombre
+            %td Valor de carrera
+            %td Cantidad de carreras
+            %td Utilidad taxista
+            %td Valor del paquete
+            %td Acciones
+        %tbody
+          - @packages.each do |package|
+            %tr
+              %td
+                = package.nombre
+              %td
+                = package.valor_de_carrera
+              %td
+                = package.cantidad_de_carreras
+              %td
+                = package.utilidad_taxista
+              %td
+                = package.valor_de_paquete
+              %td
+                = icon_link_to '', edit_package_path(package.id), 'fa-pencil'
+                = icon_link_to_delete '', package

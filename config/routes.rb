@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get '/auth', to: 'authentication#autenthicate_user'
   get '/logout', to: 'authentication#logout_user'
   get '/audited/:model/:id', to: 'audited#index'
-  get '/packages', to: 'packages#index'
 
 
   resources :inboxes
@@ -31,6 +30,7 @@ Rails.application.routes.draw do
 
   resources :taxis 
   resources :drivers 
+  resources :packages
 
   get 'logout_driver/:taxi_id/:user_id', to: 'taxis#logout_driver', as: :logout_driver_and_taxi
   get 'add_driver_to_taxi/:taxi_id/:user_id', to: 'taxis#add_driver', as: :add_driver_to_taxi
