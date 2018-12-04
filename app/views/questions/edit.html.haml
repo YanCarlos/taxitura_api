@@ -1,0 +1,10 @@
+.int-content
+	.form-title
+		Editar pregunta frecuente
+		.model-action
+			%span.badge.badge-secondary.secondary
+			= link_to 'Ver todas', questions_path
+	.row 
+		.col-sm-12.col-lg-12
+			= render 'form', question: @question
+      
