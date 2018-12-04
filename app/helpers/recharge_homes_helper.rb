@@ -1,0 +1,2 @@
+module RechargeHomesHelper
+end
