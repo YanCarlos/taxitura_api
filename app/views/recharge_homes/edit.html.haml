@@ -1,0 +1,10 @@
+.int-content
+	.form-title
+		Editar punto de recarga
+		.model-action
+			%span.badge.badge-secondary.secondary
+			= link_to 'Ver todos', recharge_homes_path
+	.row 
+		.col-sm-12.col-lg-12
+			= render 'form', recharge_home: @homes
+      
