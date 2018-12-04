@@ -1,0 +1,27 @@
+.int-content
+  .form-title
+    Lista de preguntas frecuentes
+    .model-action
+      %span.badge.badge-secondary.secondary
+        = link_to 'Crear pregunta', new_question_path
+  .row 
+    .col-sm-12.col-lg-12
+      %table.table.table-bordered
+        %thead
+          %tr
+            %td Pregunta
+            %td Respuesta
+            %td Tipo
+            %td Acciones
+        %tbody
+          - @questions.each do |q|
+            %tr
+              %td
+                = q.pregunta
+              %td
+                = q.respuesta
+              %td
+                = q.tipo
+              %td
+                = icon_link_to '', edit_question_path(q.id), 'fa-pencil'
+                = icon_link_to_delete '', q
