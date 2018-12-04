@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20181008233556) do
     t.string "asistente_nombre"
     t.integer "asistente_id"
     t.string "nombre_paquete"
+    t.index ["asistente_id"], name: "index_recharges_on_asistente_id"
     t.index ["user_id"], name: "index_recharges_on_user_id"
   end
 

@@ -1,0 +1,19 @@
+= bootstrap_form_for(@package) do |f|
+  .row
+    .col-md-4
+      = f.text_field :nombre, {required: 'required'}
+    .col-md-4
+      = f.number_field :valor_de_carrera, {required: 'required'}
+    .col-md-4
+      = f.number_field :cantidad_de_carreras, {required: 'required'}
+  .row    
+    .col-md-4
+      = f.number_field :utilidad_taxista, {required: 'required'}
+    .col-md-4
+      = f.number_field :valor_de_paquete, {required: 'required'}
+  .row
+    .actions-form
+      - if @package.new_record?
+        = f.submit 'Crear', class: 'btn btn-primary'
+      - else
+        = f.submit 'Actualizar', class: 'btn btn-primary'
