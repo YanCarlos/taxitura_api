@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181008233556) do
+ActiveRecord::Schema.define(version: 20181205043606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 20181008233556) do
     t.string "asistente_nombre"
     t.integer "asistente_id"
     t.string "nombre_paquete"
-    t.index ["asistente_id"], name: "index_recharges_on_asistente_id"
     t.index ["user_id"], name: "index_recharges_on_user_id"
   end
 
@@ -158,6 +157,7 @@ ActiveRecord::Schema.define(version: 20181008233556) do
     t.decimal "credito_ganancia", default: "0.0"
     t.boolean "welcome"
     t.text "docs_data"
+    t.text "photo_data"
     t.index ["cedula"], name: "index_users_on_cedula", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
   end

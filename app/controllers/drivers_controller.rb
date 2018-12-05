@@ -50,7 +50,8 @@ class DriversController < LockController
       :telefono, 
       :activo, 
       :direccion,
-      :docs
+      :docs,
+      :photo
     )
 
   end
@@ -64,7 +65,8 @@ class DriversController < LockController
       :telefono, 
       :activo, 
       :direccion,
-      :docs
+      :docs,
+      :photo
     )
 
   end

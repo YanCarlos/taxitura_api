@@ -74,6 +74,13 @@ gem 'loaf'
 gem 'ransack'
 gem 'toastr_rails'
 gem 'bootstrap-datepicker-rails'
+gem 'aws-sdk-s3'
 gem 'shrine'
+gem 'dotenv-rails'
+gem 'gravatar_image_tag'
+gem 'easy_presenter'
+
+
+
 
 ruby "2.4.1"

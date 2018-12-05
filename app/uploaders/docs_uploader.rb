@@ -18,9 +18,9 @@ class DocsUploader < Shrine
   def generate_location(io, context)
     class_name  = context[:record].class.name.downcase
     role =  :driver
-    name = 	context[:record].friendly_name
+    id = 	context[:record].id
     file_name = io.original_filename
 
-    [class_name, role, name, file_name].compact.join('/')
+    [class_name, role, id, file_name].compact.join('/')
   end  
 end

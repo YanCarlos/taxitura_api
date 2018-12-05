@@ -38,3 +38,4 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
 //= requiere prices.js
 //= require toastr_rails
+//= require clickable_row

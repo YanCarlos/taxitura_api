@@ -206,30 +206,10 @@
   max-width: fit-content;
 }
 
-.round{
-  border-radius: 50%;
-  overflow: hidden;
-  img{
-    max-width: 100%;
-  }
-}
 
-.image-driver{
-  margin-bottom: 10px !important;
-  width: 50%;
-  &.center{
-    margin: auto;
-  } 
-}
 
 .center{
   text-align: center;
-}
-
-.driver-name{
-  font-size: 14px;
-  font-weight: bold;
-  color: #484646;
 }
 
 
@@ -241,28 +221,71 @@
   margin-top: 10px;
 }
 
-
-.driver{
-  padding: 2px;
-  .col{
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
+.round{
+  border-radius: 50%;
+  overflow: hidden;
+  img{
+    max-width: 100%;
+    height: auto;
   }
 }
 
-.placa-taxista{
-  background-color: #ffaf17;
-  padding: 2px;
-  border-radius: 9px;
-  text-align: center;
-  color: #fff;
-  padding-right: 6px;
-  padding-left: 6px;
+.image-driver{
+  width: 50px;
+  &.center{
+    margin: auto;
+  } 
+  float: left;
+  margin-right: 2%;
+  display: flex;
+  align-items: center;
 }
 
-.placas-taxista{
-  margin-bottom: 15px;
-  margin-top: 15px;
-  text-align: center;
+
+.driver{
+  padding-bottom: 10px;
+  padding-top: 10px;
+  .col-lg-12{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .actions{
+      width: 10%;
+      margin-bottom: 0;
+    }
+    .driver-info{
+      width: 90%;
+      display: flex;
+      align-items: center;
+    }
+    .driver-data{
+      .driver-name{
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+    }
+  }
+  &:hover{
+    background-color: #f3f3f3;
+    cursor: pointer;
+  }
+}
+
+
+.red-label{
+  background-color: #f44336d9;
+  color: white;
+  padding: 5px;
+  border-radius: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.green-label{
+  background-color: #338c34b0;
+  color: white;
+  padding: 5px;
+  border-radius: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
 }

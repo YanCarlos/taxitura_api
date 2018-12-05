@@ -23,7 +23,7 @@ class AuthenticationController < ApplicationController
         role: @user.roles[0].name,
         created_at: @user.created_at,
         updated_at: @user.updated_at,
-        foto: @user.foto,
+        foto: @user.the_user_photo,
         credito: @user.credito,
         credito_ganancia: @user.credito_ganancia,
         taxis: @user.taxis

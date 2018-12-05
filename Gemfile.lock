@@ -69,6 +69,21 @@ GEM
     autoprefixer-rails (9.1.1)
       execjs
     awesome_print (1.8.0)
+    aws-eventstream (1.0.1)
+    aws-partitions (1.106.0)
+    aws-sdk-core (3.33.0)
+      aws-eventstream (~> 1.0)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.9.0)
+      aws-sdk-core (~> 3, >= 3.26.0)
+      aws-sigv4 (~> 1.0)
+    aws-sdk-s3 (1.21.0)
+      aws-sdk-core (~> 3, >= 3.26.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.0)
+    aws-sigv4 (1.0.3)
     bcrypt (3.1.12)
     bootstrap (4.0.0)
       autoprefixer-rails (>= 6.0.3)
@@ -95,7 +110,14 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     down (4.5.0)
+    easy_presenter (1.1.1)
+      rails (>= 3.2)
+      request_store
     erubi (1.7.1)
     execjs (2.7.0)
     faker (1.9.1)
@@ -110,6 +132,7 @@ GEM
       multi_json (>= 1.11.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gravatar_image_tag (1.2.0)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -118,6 +141,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jmespath (1.4.0)
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -198,6 +222,8 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    request_store (1.4.1)
+      rack (>= 1.4)
     rolify (5.2.0)
     ruby_dep (1.5.0)
     sass (3.5.7)
@@ -241,6 +267,7 @@ DEPENDENCIES
   activerecord-session_store!
   audited
   awesome_print
+  aws-sdk-s3
   bcrypt
   bootstrap (~> 4.0.0.beta2.1)
   bootstrap-datepicker-rails
@@ -249,9 +276,12 @@ DEPENDENCIES
   carrierwave!
   carrierwave-base64
   coffee-rails
+  dotenv-rails
+  easy_presenter
   faker
   font-awesome-rails
   gibbon
+  gravatar_image_tag
   haml
   jbuilder
   jquery-rails

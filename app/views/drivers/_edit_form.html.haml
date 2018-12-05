@@ -14,6 +14,9 @@
     .col-md-3
       = f.form_group :activo, label: { text: '¿Activar el taxista?' } do
         = f.check_box :activo, label: 'Activar'
+  .row
+    .col-md-3
+      = f.file_field :photo, as: :file, accept: DriverPhotoUploader::ALLOWED_TYPES.join(',')
     .col-md-3
       = f.file_field :docs, as: :file, accept: DocsUploader::ALLOWED_TYPES.join(',')
   .row
@@ -22,5 +25,5 @@
         = link_to 'Descargar documentos', @driver.docs_url(:docs)
   .row
     .actions-form
-      = f.submit 'Crear', class: 'btn btn-primary'
+      = f.submit 'Guardar', class: 'btn btn-primary'
      

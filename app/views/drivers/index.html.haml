@@ -6,28 +6,33 @@
         = link_to 'Crear conductor', new_driver_path
   = render partial: 'filter'
   .horizontal-divider
-  .row
+  .drivers
     - @drivers.each do |driver|
-      .col-sm-4.col-xs-12.col-md-4.col-lg-3.driver
-        .col-md-12.col
-          .col-md-12
-            .image-driver.center
-              - if driver.foto
+      .row.driver{ class: 'clickable-row', 'data-href': edit_driver_path(driver)}
+        .col-lg-12
+          .driver-info
+            .image-driver
+              - if driver.photo_url(:photo)
                 .round
-                  = image_tag driver.foto
+                  = image_tag driver.photo_url(:photo)
               - else
-                .round{style: "background-color: #{random_color}"}
-                  .text
-                    = get_short_name driver.nombre
-          .col-md-12
-            .driver-name.center
-              = driver.nombre
-          .col-md-12
-            .placas-taxista
-              - driver.taxis.each do |taxi|
-                %span.placa-taxista
-                  = taxi.placa
-              .actions.mt-10
-                = link_to 'Ver', edit_driver_path(driver)
-          
-   
+                .round
+                  = gravatar_image_tag(driver.email)
+            .driver-data
+              .driver-name
+                %b
+                  = driver.nombre
+              .driver-placa
+                - if driver.taxis.count > 0
+                  - driver.taxis.each do |taxi|
+                    %span.placa-taxista.badge
+                      = taxi.placa
+                - else
+                  %span.placa-taxista.badge
+                    = 'Sin taxi asignado'
+          .actions
+            - if driver.activo?
+              %span.green-label Activo
+            - else
+              %span.red-label Inactivo
+

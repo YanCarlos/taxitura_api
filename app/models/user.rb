@@ -3,17 +3,14 @@ class User < ApplicationRecord
   has_many :recharges
   has_and_belongs_to_many :taxis
   include DocsUploader::Attachment.new(:docs)
+  include DriverPhotoUploader::Attachment.new(:photo)
   audited
   has_secure_password
-  mount_base64_uploader :foto, DriverPhotoUploader
   validates_presence_of :nombre, :email, :telefono, :direccion, :cedula
 
   before_validation do
     if self.new_record?
       self.password = self.cedula
-      if self.foto.filename.nil?
-        self.foto = ImagesUtils.avatar_profile
-      end
     end
     raise CustomError, 'Ya hay un usuario registrado con este email.' if email_exists?
     raise CustomError, 'Ya hay un usuario registrado con esta cedula.' if cedula_exists?
@@ -57,6 +54,9 @@ class User < ApplicationRecord
     found and  found!= self
   end
 
+  def the_user_photo
+    photo_url(:photo) || ApplicationController.helpers.gravatar_image_url(email)
+  end
 
   def reset_token
     reset_taxi

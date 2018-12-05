@@ -6,15 +6,15 @@
         = link_to 'Crear paquete', new_package_path
   .row 
     .col-sm-12.col-lg-12
-      %table.table.table-bordered
+      %table.table
         %thead
           %tr
-            %td Nombre
-            %td Valor de carrera
-            %td Cantidad de carreras
-            %td Utilidad taxista
-            %td Valor del paquete
-            %td Acciones
+            %th Nombre
+            %th Valor de carrera
+            %th Cantidad de carreras
+            %th Utilidad taxista
+            %th Valor del paquete
+            %th Acciones
         %tbody
           - @packages.each do |package|
             %tr

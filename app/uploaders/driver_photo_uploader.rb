@@ -1,12 +1,27 @@
-class DriverPhotoUploader < CarrierWave::Uploader::Base
-  storage :file
+class DriverPhotoUploader < Shrine
+	plugin :remove_attachment
+  plugin :pretty_location
+  plugin :processing
+  plugin :versions
+  plugin :validation_helpers
 
-  def store_dir
-    "uploads/profile_photo/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  ALLOWED_TYPES = %w[image/jpg image/jpeg image/png]
+
+  Attacher.validate do
+    validate_mime_type_inclusion ALLOWED_TYPES
   end
 
-  def extension_white_list
-    %w(jpg jpeg gif png)
+  process(:store) do |io|
+    { photo: io }
   end
+
+  def generate_location(io, context)
+    class_name  = context[:record].class.name.downcase
+    role =  :driver
+    id = 	context[:record].id
+    file_name = io.original_filename
+
+    [class_name, role, id, file_name].compact.join('/')
+  end  
   
 end

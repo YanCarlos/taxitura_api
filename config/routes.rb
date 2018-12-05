@@ -40,6 +40,7 @@ Rails.application.routes.draw do
 
   get 'logout_driver/:taxi_id/:user_id', to: 'taxis#logout_driver', as: :logout_driver_and_taxi
   get 'add_driver_to_taxi/:taxi_id/:user_id', to: 'taxis#add_driver', as: :add_driver_to_taxi
+  get 'remove_driver_from_taxi/:taxi_id/:user_id', to: 'taxis#remove_driver', as: :remove_driver_to_taxi
 
 
   get 'users/sign_in', to: 'users#sign_in', as: :sign_in
@@ -47,5 +48,5 @@ Rails.application.routes.draw do
   post 'users/sign_in', to: 'users#new_session', as: :new_session
 
   root :controller => 'home', :action => 'home'
-  mount Shrine.upload_endpoint(:cache) => '/upload'
+  mount Shrine.presign_endpoint(:cache) => '/presign'
 end
