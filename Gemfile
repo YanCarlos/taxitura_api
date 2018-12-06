@@ -78,7 +78,6 @@ gem 'aws-sdk-s3'
 gem 'shrine'
 gem 'dotenv-rails'
 gem 'gravatar_image_tag'
-gem 'easy_presenter'
 
 
 
