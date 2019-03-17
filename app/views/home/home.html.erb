@@ -48,30 +48,41 @@ START ABOUT US SECTION
 
     <div class="container home-container">
       <div class="row">
-        <div class="col-md-12">
-          <div class="logo text-center">
-            <!-- LOGO -->
-            <!-- <%=image_tag("logo.png", size: "60x60") %> -->
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-sm-8">
+        <div class="col-md-6 col-sm-12">
           <div class="home_text">
+            <div class="title">
+              <div class='message-burbuja-start'>
+                <label>¡Hey! <%= image_tag('emoji/waver', class: 'emoji') %></label>
+                <label>¿Como estas?</label>
+              </div>
+              <div class='message-burbuja-start'>
+                <label>¿Sabias que <b>viajar en taxi con <span class="yellow">Taxitura</span> es una muy buena aventura</b>?</label>
+              </div>
+              <div class='message-burbuja-start'>
+                <label>Es increible, no? <%= image_tag('emoji/party1', class: 'emoji') %> <%= image_tag('emoji/party2', class: 'emoji') %></label>
+                <label>Y lo mejor de todo; te ayudamos a ahorrar tiempo, plan de datos y espacio en tu dipositivo, no debes descargar nada adicional. ¡Es genial!</label>
+              </div>
+              <div class='message-burbuja-start'>
+                <label>Todo desde Facebook <span class="blue">Messenger</span></label>
+              </div>
+              <div class='message-burbuja-start message-burbuja-end'>
+                <label>Es facil, hermoso y gratis. <%= image_tag('emoji/heart', class: 'emoji') %></label>
+                <label>¿Deseas solicitar un taxi?</label>
+              </div>
+            </div>
             <!-- TITLE AND DESC -->
-            <h1>VIAJAR EN TAXI CON TAXITURA ES UNA BUENA AVENTURA!</h1>
-            <p>Todo desde Facebook Messenger. Ahorra tiempo, datos y espacio.</p>
-
+            
             <div class="download-btn">
               <!-- BUTTON -->
-              <a class="btn home-btn wow fadeInLeft" href="https://www.facebook.com/messages/t/taxitura" target="_blank">Pedir Taxi!</a>
-              <a class="tuor btn wow fadeInRight menu-link" href="#ABOUT">Conoce más <i class="fa fa-angle-down"></i></a>
+              <a class="btn home-btn wow fadeInLeft" href="https://www.facebook.com/messages/t/taxitura" target="_blank">¡Pedir Taxi!</a>
+              <a class="tuor btn wow fadeInRight menu-link" href="#ABOUT">Conocer más <i class="fa fa-angle-down"></i></a>
             </div>
           </div>
         </div>
-        <div class="col-md-3 col-md-offset-1 col-sm-4">
+        <div class="col-md-4 col-md-offset-1 col-sm-4">
           <div class="home-iphone">
-            <%=image_tag("iphone_t.png") %>
+            <%=image_tag("iphone-vector.svg") %>
+            <%=image_tag("chatbot.gif", class: 'chatbot-gif') %>
           </div>
         </div>
       </div>
