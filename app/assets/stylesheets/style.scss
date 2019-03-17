@@ -27,7 +27,7 @@ URL: http://designscrazed.org/
   padding: 0;
 }
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Segoe UI Regular', sans-serif;
   overflow-y: scroll;
   overflow-x: hidden;
   margin: 0 !important;
@@ -78,7 +78,6 @@ body {
 }
 
 p {
-  font-family: 'Raleway', sans-serif;
   font-size: 14px;
 }
 
@@ -149,7 +148,6 @@ a.option-icon{
   }
   .navbar-default .navbar-nav>li>a {
       color: #fff;
-      font-family: 'Raleway', sans-serif;
   }
   .navbar-default .navbar-nav>li>a:hover {
       color: #f39c12;
@@ -208,14 +206,18 @@ a.option-icon{
   color: #f39c12;
 }
 .header {
-  background: url(home_t.jpg);
-  background-size: cover;
+  background: url('portada.svg');
+  background-size: 100%;
   background-repeat: no-repeat;
   padding: 0;
-  /*height: 200vh;*/
+  background-position: bottom;
+  width: 100%;
+  @media (min-width: 320px) and (max-width: 1024px) {
+    background-size: cover;
+  }
 }
 .header .section_overlay {
-  background-color: rgba(33, 33, 33, .75);
+  background-color: rgba(33, 33, 33, .25);
     /*height: 200vh;*/
 }
 .logo{
@@ -265,13 +267,18 @@ a.tuor.btn.wow.fadeInRight.animated{
   font-weight: 300;
 }
 .download-btn {
-  margin-top: 90px;
-  margin-bottom: 50px
+  margin-top: 70px;
+  margin-bottom: 50px;
+  @media (min-width: 320px) and (max-width: 1024px) {
+    text-align: center;
+    margin-top: 30px;
+  }
 }
 .home-btn,
 .home-btn:focus,
 .home-btn:active,
 .home-btn:visited {
+  height: 50px;
   border-color: #f39c12;
   color: #fff;
   background-color: #f39c12;
@@ -282,14 +289,13 @@ a.tuor.btn.wow.fadeInRight.animated{
   padding-right: 30px;
   font-size: 19px;
   text-transform: uppercase;
-  border-radius: 3px;
+  border-radius: 25px;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
 }
 .home-btn:hover {
-  border: 1px solid #fff;
   background: #ffb61a;
   color: #fff;
 }
@@ -297,12 +303,16 @@ a.tuor.btn.wow.fadeInRight.animated{
 .tuor:focus,
 tuor:active,
 tuor:visited {
+  padding: 10px;
+  width: 200px;
+  height: 50px;
   color: #A9ADB0;
   margin-left: 20px;
   text-transform: uppercase;
   font-size: 19px;
   font-weight: 500;
   background: transparent;
+  border-radius: 25px;
   -webkit-transition: all 1s;
   -moz-transition: all 1s;
   -o-transition: all 1s;
@@ -310,6 +320,7 @@ tuor:visited {
 }
 .tuor:hover {
   color: #fff;
+  border-radius: 25px;
 }
 .tuor i {
   font-size: 20px;
@@ -1323,3 +1334,102 @@ a.carousel-control:hover{
   }
   
 }
+
+a.home-btn {
+  border-radius: 25px;
+}
+
+.chatbot-gif {
+  position: absolute;
+  top: 9.2%;
+  left: 6.7%;
+  width: 87% !important;
+}
+
+div.home_text {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .download-btn {
+    text-align: left;
+    @media (min-width: 320px) and (max-width: 1024px) {
+      text-align: center;
+    }
+    a {
+      @media (min-width: 320px) and (max-width: 1024px) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .title {
+    h1 {
+      margin-bottom: 50px;
+    }
+    p {
+      color: #ffffff9e;
+    }
+  }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    height: 94vh;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    height: 72vh;
+  }
+}
+
+
+b.title-bold {
+  font-weight: 800;
+}
+
+.message-burbuja-start {
+  background-color: #fff;
+  border-radius: 21px;
+  box-shadow: 0 1px 28px 0 rgba(90,60,122,.22);
+  padding: 15px 20px;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  width: fit-content;
+  text-align: left !important;
+  * {
+    font-weight: 500 !important;
+    line-height: 25px;
+    b {
+      font-weight: 800 !important;
+    }
+  }
+}
+
+.message-burbuja-end {
+  position: relative;
+  &::after {
+    content: "";
+    width: 21px;
+    height: 35px;
+    background-color: transparent!important;
+    position: absolute;
+    left: -5px;
+    bottom: 3px;
+    background-image-size: cover!important;
+    background-image: url(pico.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom left;
+  }
+}
+span {
+  &.yellow {
+    color: #f29c13;
+  }
+  &.blue {
+    color: #0484ff;
+  }
+}
+
+.emoji {
+  width: 20px;
+}
+
+
